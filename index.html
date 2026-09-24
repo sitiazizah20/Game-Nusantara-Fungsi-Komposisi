@@ -55,11 +55,19 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+
+        /* Mode Scrolling Smooth Navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        .scroll-section {
+            scroll-margin-top: 135px;
+        }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-3 md:p-6">
+<body class="min-h-screen py-3 md:py-6 px-2 md:px-4 flex justify-center items-start">
 
-    <div id="app" class="w-full max-w-4xl glass-card rounded-3xl overflow-hidden relative shadow-2xl">
+    <div id="app" class="w-full max-w-4xl glass-card rounded-3xl overflow-hidden relative shadow-2xl flex flex-col">
         
         <!-- Header -->
         <header class="bg-green-600 text-white p-4 text-center relative shadow-md">
@@ -83,7 +91,7 @@
                         🎒
                     </div>
                     <h3 class="text-xl font-bold text-green-800 mb-1">Saya Siswa</h3>
-                    <p class="text-xs text-gray-500">Masuk dengan nama & kelas untuk memulai pemantik kontekstual dan petualangan di 5 pulau!</p>
+                    <p class="text-xs text-gray-500">Masuk dengan nama & kelas untuk memulai mode scrolling petualangan interaktif 5 pulau!</p>
                 </button>
 
                 <!-- Option: Saya Guru -->
@@ -95,7 +103,7 @@
                         <h3 class="text-xl font-bold text-blue-800">Saya Guru</h3>
                         <span class="bg-blue-100 text-blue-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-blue-200">Admin</span>
                     </div>
-                    <p class="text-xs text-gray-500">Login admin guru (username: ulfah) untuk akses Papan Peringkat Penskoran, Kunci Jawaban, Modul, & LKPD.</p>
+                    <p class="text-xs text-gray-500">Login admin guru untuk akses Papan Peringkat Penskoran, Kunci Jawaban, Modul, & LKPD.</p>
                 </button>
             </div>
         </div>
@@ -107,7 +115,7 @@
             </div>
             <h2 class="text-2xl md:text-3xl font-extrabold text-green-900 mb-1 text-center">Masuk Sebagai Siswa</h2>
             <p class="text-xs md:text-sm text-gray-500 mb-6 text-center max-w-sm">
-                Isi Nama Lengkap dan Kelas Anda sebelum memulai petualangan matematika dan pencatatan peringkat penskoran.
+                Isi Nama Lengkap dan Kelas Anda (XI-A sampai XI-F) sebelum memulai petualangan matematika mode scrolling.
             </p>
 
             <div class="w-full bg-white border border-green-200 rounded-2xl p-6 shadow-sm">
@@ -128,26 +136,29 @@
 
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1.5 flex items-center gap-1.5">
-                            <span>🏫</span> Kelas / Rombel <span class="text-red-500">*</span>
+                            <span>🏫</span> Kelas (Pilihan XI-A s/d XI-F) <span class="text-red-500">*</span>
                         </label>
-                        <input id="student-login-class" type="text" placeholder="Contoh: XI MIPA 1" required
-                               class="w-full text-sm px-4 py-2.5 bg-gray-50 focus:bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition mb-2" />
+                        <input id="student-login-class" type="text" placeholder="Contoh: XI-A" required
+                               class="w-full text-sm px-4 py-2.5 bg-gray-50 focus:bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition mb-2.5" />
                         
-                        <!-- Pilihan Cepat Kelas -->
-                        <div class="flex flex-wrap items-center gap-1.5 text-xs">
-                            <span class="text-[11px] text-gray-400">Pilihan cepat:</span>
-                            <button type="button" onclick="setQuickClass('XI MIPA 1')" class="px-2.5 py-1 bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-800 rounded-lg border border-gray-200 text-xs transition cursor-pointer">XI MIPA 1</button>
-                            <button type="button" onclick="setQuickClass('XI MIPA 2')" class="px-2.5 py-1 bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-800 rounded-lg border border-gray-200 text-xs transition cursor-pointer">XI MIPA 2</button>
-                            <button type="button" onclick="setQuickClass('XI MIPA 3')" class="px-2.5 py-1 bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-800 rounded-lg border border-gray-200 text-xs transition cursor-pointer">XI MIPA 3</button>
-                            <button type="button" onclick="setQuickClass('XI IPS 1')" class="px-2.5 py-1 bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-800 rounded-lg border border-gray-200 text-xs transition cursor-pointer">XI IPS 1</button>
-                            <button type="button" onclick="setQuickClass('XI IPS 2')" class="px-2.5 py-1 bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-800 rounded-lg border border-gray-200 text-xs transition cursor-pointer">XI IPS 2</button>
+                        <!-- Pilihan Cepat Kelas XI-A s/d XI-F -->
+                        <div>
+                            <span class="text-[11px] text-gray-500 font-semibold block mb-1.5">Pilih Cepat Rombel:</span>
+                            <div class="grid grid-cols-3 sm:grid-cols-6 gap-1.5">
+                                <button type="button" onclick="setQuickClass('XI-A')" class="py-1.5 px-2 bg-gray-100 hover:bg-green-100 hover:text-green-800 text-gray-700 font-bold rounded-lg border border-gray-200 text-xs transition cursor-pointer text-center">XI-A</button>
+                                <button type="button" onclick="setQuickClass('XI-B')" class="py-1.5 px-2 bg-gray-100 hover:bg-green-100 hover:text-green-800 text-gray-700 font-bold rounded-lg border border-gray-200 text-xs transition cursor-pointer text-center">XI-B</button>
+                                <button type="button" onclick="setQuickClass('XI-C')" class="py-1.5 px-2 bg-gray-100 hover:bg-green-100 hover:text-green-800 text-gray-700 font-bold rounded-lg border border-gray-200 text-xs transition cursor-pointer text-center">XI-C</button>
+                                <button type="button" onclick="setQuickClass('XI-D')" class="py-1.5 px-2 bg-gray-100 hover:bg-green-100 hover:text-green-800 text-gray-700 font-bold rounded-lg border border-gray-200 text-xs transition cursor-pointer text-center">XI-D</button>
+                                <button type="button" onclick="setQuickClass('XI-E')" class="py-1.5 px-2 bg-gray-100 hover:bg-green-100 hover:text-green-800 text-gray-700 font-bold rounded-lg border border-gray-200 text-xs transition cursor-pointer text-center">XI-E</button>
+                                <button type="button" onclick="setQuickClass('XI-F')" class="py-1.5 px-2 bg-gray-100 hover:bg-green-100 hover:text-green-800 text-gray-700 font-bold rounded-lg border border-gray-200 text-xs transition cursor-pointer text-center">XI-F</button>
+                            </div>
                         </div>
                     </div>
 
                     <div class="pt-2">
                         <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl btn-hover shadow-md text-sm md:text-base flex items-center justify-center gap-2 cursor-pointer transition">
-                            <span>Masuk Petualangan Belajar</span>
-                            <span>🚀</span>
+                            <span>Mulai Petualangan (Mode Scrolling)</span>
+                            <span>📜</span>
                         </button>
                     </div>
                 </form>
@@ -169,31 +180,18 @@
             </p>
 
             <div class="w-full bg-white border border-blue-200 rounded-2xl p-6 shadow-sm">
-                <!-- Hint Kredensial Resmi -->
-                <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 mb-4 text-xs text-blue-900 flex items-start gap-2.5">
-                    <span class="text-lg shrink-0">💡</span>
-                    <div>
-                        <span class="font-bold">Kredensial Admin Guru:</span>
-                        <div class="mt-0.5 space-x-2 font-mono text-[13px]">
-                            <span>Username: <b class="text-blue-700 font-bold bg-white px-2 py-0.5 rounded border border-blue-200">ulfah</b></span>
-                            <span>|</span>
-                            <span>Password: <b class="text-blue-700 font-bold bg-white px-2 py-0.5 rounded border border-blue-200">123456</b></span>
-                        </div>
-                    </div>
-                </div>
-
                 <form id="form-login-guru" onsubmit="handleAdminLogin(event)" class="space-y-4">
                     <!-- Error Alert Box -->
                     <div id="admin-login-error" class="hidden bg-red-50 border border-red-200 text-red-700 text-xs p-3 rounded-xl flex items-center gap-2">
                         <span>❌</span>
-                        <span id="admin-login-error-text">Username atau password salah! (Username: ulfah, Password: 123456)</span>
+                        <span id="admin-login-error-text">Username atau password salah!</span>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1.5 flex items-center gap-1.5">
                             <span>👤</span> Username Admin <span class="text-red-500">*</span>
                         </label>
-                        <input id="admin-login-username" type="text" placeholder="Masukkan username admin (ulfah)" required autocomplete="username"
+                        <input id="admin-login-username" type="text" placeholder="Masukkan username admin" required autocomplete="username"
                                class="w-full text-sm px-4 py-2.5 bg-gray-50 focus:bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
                     </div>
 
@@ -202,7 +200,7 @@
                             <span>🔑</span> Password <span class="text-red-500">*</span>
                         </label>
                         <div class="relative">
-                            <input id="admin-login-password" type="password" placeholder="Masukkan password (123456)" required autocomplete="current-password"
+                            <input id="admin-login-password" type="password" placeholder="Masukkan password admin" required autocomplete="current-password"
                                    class="w-full text-sm px-4 py-2.5 bg-gray-50 focus:bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition pr-10" />
                             <button type="button" onclick="togglePasswordVisibility('admin-login-password', 'toggle-pwd-icon')" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 text-sm cursor-pointer" title="Lihat/Sembunyikan Password">
                                 <span id="toggle-pwd-icon">👁️</span>
@@ -224,179 +222,465 @@
             </button>
         </div>
 
-        <div id="scene-pemantik" class="hidden-scene p-6 md:p-8 flex flex-col items-center fade-in">
-            <!-- Active Student Identity Banner -->
-            <div class="w-full max-w-xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-3.5 mb-5 flex flex-wrap items-center justify-between gap-2 shadow-xs">
-                <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 bg-green-200 text-green-800 rounded-full flex items-center justify-center text-lg font-bold">
-                        🎒
+        <!-- Scene 3: Mode Scrolling Petualangan Siswa -->
+        <div id="scene-adventure-scroll" class="hidden-scene fade-in flex flex-col">
+            <!-- Sticky Top Control & Navigation Bar -->
+            <div class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-green-200 shadow-sm px-3 sm:px-6 py-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <!-- Siswa Identity -->
+                    <div class="flex items-center gap-2">
+                        <span class="w-8 h-8 bg-green-100 text-green-800 rounded-full flex items-center justify-center text-sm font-bold shadow-2xs">🎒</span>
+                        <div>
+                            <div id="scroll-student-tag" class="text-xs sm:text-sm font-black text-green-950">Nama Siswa (XI-A)</div>
+                            <div class="text-[10px] text-green-700 font-bold uppercase tracking-wider flex items-center gap-1">
+                                <span>📜 Mode Scrolling Aktif</span>
+                                <span class="text-gray-400">•</span>
+                                <span class="text-gray-500 font-normal">5 Pos Komposisi Fungsi</span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="text-[11px] text-green-700 font-semibold uppercase tracking-wider">Siswa Aktif Terdaftar:</div>
-                        <div id="pemantik-student-tag" class="text-sm font-extrabold text-green-950">Nama Siswa (Kelas)</div>
+
+                    <!-- Live Timer & Score -->
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <div class="bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl text-center shadow-2xs flex items-center gap-1.5">
+                            <span class="text-sm">⏱️</span>
+                            <div>
+                                <span class="text-[9px] text-blue-600 block uppercase font-bold tracking-tight">Waktu</span>
+                                <span id="scroll-game-timer" class="text-xs sm:text-sm math-font font-black text-blue-900 leading-tight">00:00</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-50 border border-green-200 px-3 py-1 rounded-xl text-center shadow-2xs flex items-center gap-1.5">
+                            <span class="text-sm">⭐</span>
+                            <div>
+                                <span class="text-[9px] text-green-600 block uppercase font-bold tracking-tight">Skor (<span id="scroll-answered-count">0</span>/5 Pos)</span>
+                                <span id="scroll-score-display" class="text-xs sm:text-sm math-font font-black text-green-800 leading-tight">0</span>
+                            </div>
+                        </div>
+
+                        <button onclick="changeStudentAccount()" class="text-[11px] font-bold text-gray-600 hover:text-green-800 bg-gray-100 hover:bg-green-100 border border-gray-300 px-2.5 py-1.5 rounded-lg transition cursor-pointer" title="Ganti akun siswa">
+                            🔄 <span class="hidden sm:inline">Ganti</span>
+                        </button>
                     </div>
                 </div>
-                <button onclick="changeStudentAccount()" class="text-xs font-bold text-green-800 hover:text-green-950 bg-white hover:bg-green-100 border border-green-300 px-3 py-1.5 rounded-lg transition cursor-pointer flex items-center gap-1 shadow-2xs">
-                    <span>🔄 Ganti Siswa</span>
-                </button>
-            </div>
 
-            <!-- Header Pemantik -->
-            <div class="text-center mb-6">
-                <span class="text-5xl float-anim inline-block mb-2">🥞</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-green-800">Fase Orientasi: Misteri Martabak Online</h2>
-                <p class="text-gray-600 text-sm md:text-base mt-1 max-w-lg">Pernahkah kamu memesan makanan online dan bertanya-tanya apakah urutan diskon dan pajak mempengaruhi total harga?</p>
-            </div>
-
-            <!-- Ilustrasi Masalah Pemantik -->
-            <div class="w-full bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-5 shadow-sm">
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="text-2xl">🛵</span>
-                    <h3 class="font-bold text-amber-900 text-base">Kasus: Pesan Martabak Rp 50.000</h3>
+                <!-- Overall Progress Bar -->
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2 overflow-hidden">
+                    <div id="scroll-progress-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
                 </div>
-                <p class="text-xs md:text-sm text-gray-700 leading-relaxed mb-4">
-                    Kamu ingin memesan martabak seharga <b>Rp 50.000</b>. Di aplikasi ada voucher diskon potongan tunai <b>Rp 10.000</b> (fungsi <span class="math-font font-semibold text-blue-700">f(x) = x - 10.000</span>) dan biaya layanan/pajak restoran <b>10%</b> (fungsi <span class="math-font font-semibold text-purple-700">g(x) = 1,1x</span>).
-                </p>
 
-                <p class="text-xs md:text-sm font-semibold text-gray-800 mb-3">Tebak: Mana urutan perhitungan yang paling menguntungkan (paling murah) bagi pembeli?</p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                    <button id="btn-pemantik-a" onclick="checkPemantik('a')" class="p-3.5 rounded-xl border-2 border-green-400 bg-white hover:bg-green-50 text-left transition cursor-pointer shadow-sm btn-hover">
-                        <div class="font-bold text-green-800 text-sm mb-1">🟢 Urutan A: (g ∘ f)(x)</div>
-                        <div class="text-xs text-gray-600">Diskon dipotong <i>terlebih dahulu</i>, lalu hasilnya dikenakan pajak 10%.</div>
+                <!-- Quick Jump Navigation Pills (Scroll to section) -->
+                <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs scrollbar-none font-semibold">
+                    <span class="text-[10px] text-gray-400 font-bold uppercase shrink-0 mr-0.5">Navigasi:</span>
+                    <button type="button" onclick="scrollToSection('sec-orientasi')" id="nav-pill-orientasi" class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 hover:bg-amber-200 shrink-0 transition cursor-pointer border border-amber-300 text-[11px]">
+                        🥞 Orientasi
                     </button>
-                    <button id="btn-pemantik-b" onclick="checkPemantik('b')" class="p-3.5 rounded-xl border-2 border-purple-300 bg-white hover:bg-purple-50 text-left transition cursor-pointer shadow-sm btn-hover">
-                        <div class="font-bold text-purple-800 text-sm mb-1">🟣 Urutan B: (f ∘ g)(x)</div>
-                        <div class="text-xs text-gray-600">Pajak 10% dihitung <i>terlebih dahulu</i>, baru dikurangi diskon voucher.</div>
+                    <button type="button" onclick="scrollToSection('sec-pos-1')" id="nav-pill-1" class="px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-green-100 hover:text-green-900 shrink-0 transition cursor-pointer border border-gray-200 text-[11px]">
+                        🏝️ Pos 1
+                    </button>
+                    <button type="button" onclick="scrollToSection('sec-pos-2')" id="nav-pill-2" class="px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-green-100 hover:text-green-900 shrink-0 transition cursor-pointer border border-gray-200 text-[11px]">
+                        🎨 Pos 2
+                    </button>
+                    <button type="button" onclick="scrollToSection('sec-pos-3')" id="nav-pill-3" class="px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-green-100 hover:text-green-900 shrink-0 transition cursor-pointer border border-gray-200 text-[11px]">
+                        🛶 Pos 3
+                    </button>
+                    <button type="button" onclick="scrollToSection('sec-pos-4')" id="nav-pill-4" class="px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-green-100 hover:text-green-900 shrink-0 transition cursor-pointer border border-gray-200 text-[11px]">
+                        ⛵ Pos 4
+                    </button>
+                    <button type="button" onclick="scrollToSection('sec-pos-5')" id="nav-pill-5" class="px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-green-100 hover:text-green-900 shrink-0 transition cursor-pointer border border-gray-200 text-[11px]">
+                        🪸 Pos 5
+                    </button>
+                    <button type="button" onclick="scrollToSection('sec-hasil')" id="nav-pill-hasil" class="px-2.5 py-1 rounded-full bg-purple-100 text-purple-900 hover:bg-purple-200 shrink-0 transition cursor-pointer border border-purple-300 text-[11px]">
+                        🏆 Hasil
                     </button>
                 </div>
-
-                <!-- Pemantik Feedback Container -->
-                <div id="pemantik-feedback" class="hidden text-sm">
-                    <!-- Populated by JS -->
-                </div>
             </div>
 
-            <!-- Ringkasan Konseptual -->
-            <div class="w-full bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-center text-xs md:text-sm text-green-900">
-                💡 <b>Kunci Konsep Komposisi Fungsi:</b> Urutan pengerjaan fungsi sangat menentukan hasil akhir, di mana secara umum <span class="math-font font-bold">(g ∘ f)(x) ≠ (f ∘ g)(x)</span>.
-            </div>
+            <!-- Scrolling Content Container -->
+            <div class="p-4 sm:p-6 md:p-8 space-y-10">
 
-            <button onclick="startGame()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-8 rounded-full btn-hover shadow-lg text-base md:text-lg flex items-center gap-2 cursor-pointer">
-                <span>Mulai Petualangan 5 Pos Nusantara</span>
-                <span>🚀</span>
-            </button>
-        </div>
-
-        <div id="scene-game" class="hidden-scene p-6 md:p-8 flex flex-col fade-in">
-            <!-- Progress Bar -->
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-4 overflow-hidden">
-                <div id="progress-bar" class="bg-green-500 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
-            </div>
-
-            <!-- Header Level & Live Timer -->
-            <div class="flex flex-wrap justify-between items-center mb-3 border-b border-gray-200 pb-3 gap-2">
-                <div class="flex items-center gap-2">
-                    <span id="level-icon" class="text-3xl float-anim">🏝️</span>
-                    <div>
-                        <h2 id="level-title" class="text-lg md:text-xl font-bold text-gray-800">Pos 1: Sumatera</h2>
-                        <p id="level-subtitle" class="text-xs md:text-sm text-gray-500 font-semibold">Kebun Kopi Gayo</p>
+                <!-- SECTION 0: Orientasi Pemantik -->
+                <section id="sec-orientasi" class="scroll-section bg-gradient-to-br from-amber-50/80 via-white to-green-50/50 border border-amber-200 rounded-3xl p-5 sm:p-7 shadow-xs">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-3xl float-anim">🥞</span>
+                        <div>
+                            <span class="text-[10px] font-black tracking-widest text-amber-800 uppercase bg-amber-100 px-2 py-0.5 rounded-full">Fase Orientasi Kontekstual</span>
+                            <h2 class="text-xl sm:text-2xl font-black text-gray-900">Misteri Martabak Online</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl text-center shadow-xs">
-                        <span class="text-[10px] text-blue-600 block uppercase font-bold tracking-wider">⏱️ Waktu</span>
-                        <span id="game-timer" class="text-base md:text-lg math-font font-bold text-blue-800">00:00</span>
+                    <p class="text-gray-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                        Pernahkah kamu memesan makanan online dan bertanya-tanya apakah urutan diskon dan pajak mempengaruhi total harga akhir? Mari kita buktikan secara matematis!
+                    </p>
+
+                    <!-- Kasus Soal Pemantik -->
+                    <div class="bg-white border border-amber-200 rounded-2xl p-4 sm:p-5 mb-4 shadow-2xs">
+                        <div class="flex items-center gap-2 mb-2 text-amber-900 font-bold text-sm">
+                            <span>🛵</span>
+                            <span>Kasus: Pesanan Martabak Manis Rp 50.000</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-700 leading-relaxed mb-3">
+                            Harga awal martabak adalah <b>Rp 50.000</b>. Di aplikasi ada voucher potongan tunai <b>Rp 10.000</b> (fungsi <span class="math-font font-bold text-blue-700">f(x) = x - 10.000</span>) dan biaya pajak restoran <b>10%</b> (fungsi <span class="math-font font-bold text-purple-700">g(x) = 1,1x</span>).
+                        </p>
+                        <p class="text-xs sm:text-sm font-extrabold text-gray-800 mb-3">
+                            Tebak: Mana urutan perhitungan yang paling menguntungkan (paling murah) bagi pembeli?
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                            <button id="btn-pemantik-scroll-a" onclick="checkPemantikScroll('a')" class="p-3.5 rounded-xl border-2 border-green-400 bg-white hover:bg-green-50 text-left transition cursor-pointer shadow-2xs btn-hover">
+                                <div class="font-extrabold text-green-800 text-sm mb-1">🟢 Urutan A: (g ∘ f)(x)</div>
+                                <div class="text-xs text-gray-600">Diskon dipotong <i>terlebih dahulu</i>, lalu hasilnya dikenakan pajak 10%.</div>
+                            </button>
+                            <button id="btn-pemantik-scroll-b" onclick="checkPemantikScroll('b')" class="p-3.5 rounded-xl border-2 border-purple-300 bg-white hover:bg-purple-50 text-left transition cursor-pointer shadow-2xs btn-hover">
+                                <div class="font-extrabold text-purple-800 text-sm mb-1">🟣 Urutan B: (f ∘ g)(x)</div>
+                                <div class="text-xs text-gray-600">Pajak 10% dihitung <i>terlebih dahulu</i>, baru dikurangi diskon voucher.</div>
+                            </button>
+                        </div>
+
+                        <!-- Pemantik Feedback Container -->
+                        <div id="scroll-pemantik-feedback" class="hidden text-sm mb-2"></div>
                     </div>
-                    <div class="bg-green-50 border border-green-200 px-3 py-1 rounded-xl text-center shadow-xs">
-                        <span class="text-[10px] text-green-600 block uppercase font-bold tracking-wider">Skor</span>
-                        <span id="score-display" class="text-base md:text-lg math-font font-bold text-green-700">0</span>
+
+                    <!-- Kunci Konsep -->
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-3.5 text-xs sm:text-sm text-green-950 flex items-start gap-2.5 mb-4">
+                        <span class="text-lg">💡</span>
+                        <div>
+                            <b>Kunci Konsep Komposisi Fungsi:</b> Urutan pengerjaan fungsi sangat menentukan hasil akhir, di mana secara umum <span class="math-font font-bold text-green-900">(g ∘ f)(x) ≠ (f ∘ g)(x)</span>.
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Sub-bar Siswa -->
-            <div class="flex items-center justify-between text-xs text-gray-600 bg-gray-100 px-3 py-1.5 rounded-lg mb-4">
-                <span id="player-identity-tag" class="font-medium text-gray-800">👤 Siswa: Budi Santoso (XI MIPA 1)</span>
-                <span class="text-gray-500 hidden sm:inline">Target: Nilai Terbesar & Waktu Tercepat</span>
-            </div>
-
-            <!-- Problem Context -->
-            <p id="problem-context" class="mb-4 text-gray-700 leading-relaxed text-sm md:text-base">
-                Konteks soal akan muncul di sini.
-            </p>
-
-            <!-- Function Definitions -->
-            <div class="bg-green-50 rounded-xl p-4 mb-6 border border-green-200 shadow-inner flex flex-col md:flex-row gap-4 justify-center">
-                <div class="text-center flex-1">
-                    <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-1">Tahap 1</span>
-                    <div id="func-f" class="math-font text-lg md:text-xl font-bold text-blue-700 bg-white py-2 px-4 rounded shadow-sm border border-blue-100">
-                        f(x) = ...
+                    <div class="flex justify-end">
+                        <button type="button" onclick="scrollToSection('sec-pos-1')" class="bg-green-600 hover:bg-green-700 text-white font-bold text-xs sm:text-sm py-2.5 px-5 rounded-xl btn-hover shadow-sm flex items-center gap-2 cursor-pointer">
+                            <span>Mulai Tantangan Pos 1: Sumatera</span>
+                            <span>⬇️</span>
+                        </button>
                     </div>
-                </div>
-                <div class="text-center flex-1">
-                    <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-1">Tahap 2</span>
-                    <div id="func-g" class="math-font text-lg md:text-xl font-bold text-purple-700 bg-white py-2 px-4 rounded shadow-sm border border-purple-100">
-                        g(x) = ...
+                </section>
+
+                <!-- SECTION 1: Pos 1 Sumatera -->
+                <section id="sec-pos-1" class="scroll-section bg-white border-2 border-green-200 rounded-3xl p-5 sm:p-7 shadow-xs">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b border-gray-100 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl float-anim">🏝️</span>
+                            <div>
+                                <span class="bg-green-100 text-green-800 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">Pos 1 dari 5 (Evaluasi Nilai)</span>
+                                <h3 class="text-lg sm:text-xl font-black text-gray-900">Sumatera: Kebun Kopi Gayo</h3>
+                            </div>
+                        </div>
+                        <div id="pos-status-badge-0" class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                            ⏳ Belum Dijawab
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Question -->
-            <div class="mb-6">
-                <h3 class="font-bold text-gray-800 text-base md:text-lg mb-2">Tantangan:</h3>
-                <p id="question-text" class="text-base md:text-lg math-font bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded-r">
-                    Pertanyaan?
-                </p>
-            </div>
+                    <p class="text-gray-700 text-xs sm:text-sm mb-4 leading-relaxed">
+                        Panen biji kopi basah diproses melalui dua mesin. <b>Mesin Tahap 1</b> menyortir dan mengeringkan biji (<span class="math-font font-bold text-blue-700">f(x)</span>), lalu <b>Mesin Tahap 2</b> memanggang dan menghaluskan menjadi bubuk (<span class="math-font font-bold text-purple-700">g(x)</span>).
+                    </p>
 
-            <!-- Options -->
-            <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-auto">
-                <!-- Buttons injected via JS -->
-            </div>
-            
-            <!-- Feedback Message -->
-            <div id="feedback-message" class="hidden mt-4 text-center font-bold p-3 rounded-lg text-white">
-                <!-- Feedback injected via JS -->
-            </div>
-        </div>
+                    <!-- Formula Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-blue-600 block mb-0.5">Tahap 1 (Biji Basah ➔ Sortir)</span>
+                            <span class="math-font font-extrabold text-blue-800 text-base md:text-lg">f(x) = 2x + 10</span>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-purple-600 block mb-0.5">Tahap 2 (Sortir ➔ Bubuk Siap Jual)</span>
+                            <span class="math-font font-extrabold text-purple-800 text-base md:text-lg">g(x) = x - 5</span>
+                        </div>
+                    </div>
 
-        <div id="scene-end" class="hidden-scene p-6 md:p-8 flex flex-col items-center fade-in text-center">
-            <span class="text-6xl mb-3 float-anim">🏆</span>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-green-800 mb-1">Misi Petualangan Nusantara Selesai!</h2>
-            <p id="end-subtitle" class="text-gray-600 text-sm mb-6">Hebat! Kamu telah menyelesaikan seluruh pos komposisi fungsi.</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md mb-5">
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
-                    <p class="text-xs text-gray-500 font-semibold mb-1 uppercase tracking-wider">Total Skor Kamu</p>
-                    <div id="final-score" class="text-4xl math-font font-black text-green-600">100</div>
-                    <span class="text-xs text-gray-400 mt-1">Maksimal: 100</span>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
-                    <p class="text-xs text-gray-500 font-semibold mb-1 uppercase tracking-wider">Waktu Pengerjaan</p>
-                    <div id="final-time" class="text-4xl math-font font-black text-blue-600">01:35</div>
-                    <span class="text-xs text-gray-400 mt-1" id="final-time-text">1 menit 35 detik</span>
-                </div>
-            </div>
+                    <!-- Pertanyaan -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Tantangan:</h4>
+                        <div class="math-font font-semibold text-gray-900 bg-amber-50/80 border-l-4 border-amber-400 p-3 rounded-r text-sm sm:text-base">
+                            Jika petani membawa <b>3 karung</b> biji kopi basah (x = 3), berapa kg bubuk kopi yang dihasilkan? Hitung nilai <span class="font-extrabold text-green-800">(g ∘ f)(3)</span>!
+                        </div>
+                    </div>
 
-            <!-- Badge Peringkat Sementara -->
-            <div id="final-rank-badge" class="bg-amber-50 border border-amber-300 rounded-2xl p-4 w-full max-w-md mb-6 flex items-center justify-center gap-3 shadow-xs">
-                <span id="final-rank-icon" class="text-3xl">🥇</span>
-                <div class="text-left">
-                    <div class="text-xs font-bold uppercase text-amber-800 tracking-wider">Peringkat Sementara Kelas</div>
-                    <div id="final-rank-text" class="text-sm md:text-base font-extrabold text-amber-900">Menyimpan skor ke server...</div>
-                </div>
-            </div>
-            
-            <p id="final-message" class="mb-6 text-base font-medium text-gray-800">Luar Biasa!</p>
+                    <!-- Options Container -->
+                    <div id="pos-options-0" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                        <!-- Populated by JS -->
+                    </div>
 
-            <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md">
-                <button onclick="viewLeaderboardFromEnd()" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-xl btn-hover shadow-md text-sm flex items-center justify-center gap-2 cursor-pointer">
-                    <span>🏆 Lihat Papan Peringkat</span>
-                </button>
-                <button onclick="resetGame()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl btn-hover shadow-md text-sm flex items-center justify-center gap-2 cursor-pointer">
-                    <span>Main Lagi 🔄</span>
-                </button>
+                    <!-- Feedback Container -->
+                    <div id="pos-feedback-0" class="hidden mb-4 p-3.5 rounded-xl text-xs sm:text-sm"></div>
+
+                    <!-- Down Jump Button -->
+                    <div class="flex justify-end pt-2 border-t border-gray-100">
+                        <button type="button" onclick="scrollToSection('sec-pos-2')" class="text-xs font-bold text-green-700 hover:text-green-900 bg-green-50 hover:bg-green-100 px-4 py-2 rounded-xl transition cursor-pointer flex items-center gap-1.5">
+                            <span>Lanjut ke Pos 2: Jawa</span>
+                            <span>⬇️</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- SECTION 2: Pos 2 Jawa -->
+                <section id="sec-pos-2" class="scroll-section bg-white border-2 border-blue-200 rounded-3xl p-5 sm:p-7 shadow-xs">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b border-gray-100 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl float-anim">🎨</span>
+                            <div>
+                                <span class="bg-blue-100 text-blue-800 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">Pos 2 dari 5 (Rumus Aljabar Linear)</span>
+                                <h3 class="text-lg sm:text-xl font-black text-gray-900">Jawa: Kampung Batik Laweyan</h3>
+                            </div>
+                        </div>
+                        <div id="pos-status-badge-1" class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                            ⏳ Belum Dijawab
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 text-xs sm:text-sm mb-4 leading-relaxed">
+                        Pengrajin batik membuat pola dengan malam/lilin dengan fungsi <span class="math-font font-bold text-blue-700">f(x)</span>, kemudian dilanjutkan dengan tahap pewarnaan celup dengan fungsi <span class="math-font font-bold text-purple-700">g(x)</span>.
+                    </p>
+
+                    <!-- Formula Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-blue-600 block mb-0.5">Tahap 1: Membatik Pola</span>
+                            <span class="math-font font-extrabold text-blue-800 text-base md:text-lg">f(x) = 3x - 2</span>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-purple-600 block mb-0.5">Tahap 2: Pewarnaan Celup</span>
+                            <span class="math-font font-extrabold text-purple-800 text-base md:text-lg">g(x) = x + 4</span>
+                        </div>
+                    </div>
+
+                    <!-- Pertanyaan -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Tantangan:</h4>
+                        <div class="math-font font-semibold text-gray-900 bg-amber-50/80 border-l-4 border-amber-400 p-3 rounded-r text-sm sm:text-base">
+                            Bantulah pengrajin menemukan rumus mesin otomatis yang menggabungkan kedua proses sekaligus. Tentukan rumus fungsi komposisi <span class="font-extrabold text-blue-800">(g ∘ f)(x)</span>!
+                        </div>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="pos-options-1" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Feedback Container -->
+                    <div id="pos-feedback-1" class="hidden mb-4 p-3.5 rounded-xl text-xs sm:text-sm"></div>
+
+                    <!-- Down Jump Button -->
+                    <div class="flex justify-end pt-2 border-t border-gray-100">
+                        <button type="button" onclick="scrollToSection('sec-pos-3')" class="text-xs font-bold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-xl transition cursor-pointer flex items-center gap-1.5">
+                            <span>Lanjut ke Pos 3: Kalimantan</span>
+                            <span>⬇️</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- SECTION 3: Pos 3 Kalimantan -->
+                <section id="sec-pos-3" class="scroll-section bg-white border-2 border-amber-200 rounded-3xl p-5 sm:p-7 shadow-xs">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b border-gray-100 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl float-anim">🛶</span>
+                            <div>
+                                <span class="bg-amber-100 text-amber-800 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">Pos 3 dari 5 (Fungsi Rasional / Barter)</span>
+                                <h3 class="text-lg sm:text-xl font-black text-gray-900">Kalimantan: Pasar Terapung Lok Baintan</h3>
+                            </div>
+                        </div>
+                        <div id="pos-status-badge-2" class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                            ⏳ Belum Dijawab
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 text-xs sm:text-sm mb-4 leading-relaxed">
+                        Di pasar terapung berlaku sistem barter bertingkat. Fungsi <span class="math-font font-bold text-blue-700">f(x)</span> menukar keranjang Jeruk menjadi Ikan Gabus. Fungsi <span class="math-font font-bold text-purple-700">g(x)</span> menukar Ikan Gabus menjadi Liter Beras.
+                    </p>
+
+                    <!-- Formula Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-blue-600 block mb-0.5">Tahap 1: Jeruk ➔ Ikan Gabus</span>
+                            <span class="math-font font-extrabold text-blue-800 text-base md:text-lg">f(x) = (x + 2) / 3</span>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-purple-600 block mb-0.5">Tahap 2: Ikan Gabus ➔ Liter Beras</span>
+                            <span class="math-font font-extrabold text-purple-800 text-base md:text-lg">g(x) = 2x - 1</span>
+                        </div>
+                    </div>
+
+                    <!-- Pertanyaan -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Tantangan:</h4>
+                        <div class="math-font font-semibold text-gray-900 bg-amber-50/80 border-l-4 border-amber-400 p-3 rounded-r text-sm sm:text-base">
+                            Berapa liter beras yang didapat pedagang jika ia memulai barter dengan membawa <b>10 keranjang Jeruk</b>? Hitung nilai <span class="font-extrabold text-amber-800">(g ∘ f)(10)</span>!
+                        </div>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="pos-options-2" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Feedback Container -->
+                    <div id="pos-feedback-2" class="hidden mb-4 p-3.5 rounded-xl text-xs sm:text-sm"></div>
+
+                    <!-- Down Jump Button -->
+                    <div class="flex justify-end pt-2 border-t border-gray-100">
+                        <button type="button" onclick="scrollToSection('sec-pos-4')" class="text-xs font-bold text-amber-700 hover:text-amber-900 bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-xl transition cursor-pointer flex items-center gap-1.5">
+                            <span>Lanjut ke Pos 4: Sulawesi</span>
+                            <span>⬇️</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- SECTION 4: Pos 4 Sulawesi -->
+                <section id="sec-pos-4" class="scroll-section bg-white border-2 border-indigo-200 rounded-3xl p-5 sm:p-7 shadow-xs">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b border-gray-100 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl float-anim">⛵</span>
+                            <div>
+                                <span class="bg-indigo-100 text-indigo-800 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">Pos 4 dari 5 (Fungsi Biaya Finansial)</span>
+                                <h3 class="text-lg sm:text-xl font-black text-gray-900">Sulawesi: Galangan Kapal Pinisi</h3>
+                            </div>
+                        </div>
+                        <div id="pos-status-badge-3" class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                            ⏳ Belum Dijawab
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 text-xs sm:text-sm mb-4 leading-relaxed">
+                        Pembuatan perahu Pinisi memerlukan kayu khusus. Fungsi <span class="math-font font-bold text-blue-700">f(x)</span> menghitung biaya bahan baku (juta rupiah), dan <span class="math-font font-bold text-purple-700">g(x)</span> menambahkan biaya jasa pengerjaan 20 juta rupiah.
+                    </p>
+
+                    <!-- Formula Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-blue-600 block mb-0.5">Tahap 1: Biaya Kayu Bahan (Juta)</span>
+                            <span class="math-font font-extrabold text-blue-800 text-base md:text-lg">f(x) = 5x</span>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-purple-600 block mb-0.5">Tahap 2: Total Biaya + Jasa (Juta)</span>
+                            <span class="math-font font-extrabold text-purple-800 text-base md:text-lg">g(x) = x + 20</span>
+                        </div>
+                    </div>
+
+                    <!-- Pertanyaan -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Tantangan:</h4>
+                        <div class="math-font font-semibold text-gray-900 bg-amber-50/80 border-l-4 border-amber-400 p-3 rounded-r text-sm sm:text-base">
+                            Pelanggan memesan kapal dengan spesifikasi bahan x. Tentukan rumus fungsi komposisi total biaya <span class="font-extrabold text-indigo-800">(g ∘ f)(x)</span>!
+                        </div>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="pos-options-3" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Feedback Container -->
+                    <div id="pos-feedback-3" class="hidden mb-4 p-3.5 rounded-xl text-xs sm:text-sm"></div>
+
+                    <!-- Down Jump Button -->
+                    <div class="flex justify-end pt-2 border-t border-gray-100">
+                        <button type="button" onclick="scrollToSection('sec-pos-5')" class="text-xs font-bold text-indigo-700 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 px-4 py-2 rounded-xl transition cursor-pointer flex items-center gap-1.5">
+                            <span>Lanjut ke Pos 5: Papua</span>
+                            <span>⬇️</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- SECTION 5: Pos 5 Papua -->
+                <section id="sec-pos-5" class="scroll-section bg-white border-2 border-rose-200 rounded-3xl p-5 sm:p-7 shadow-xs">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b border-gray-100 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl float-anim">🪸</span>
+                            <div>
+                                <span class="bg-rose-100 text-rose-800 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">Pos 5 dari 5 (Fungsi Kuadrat)</span>
+                                <h3 class="text-lg sm:text-xl font-black text-gray-900">Papua: Konservasi Raja Ampat</h3>
+                            </div>
+                        </div>
+                        <div id="pos-status-badge-4" class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                            ⏳ Belum Dijawab
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 text-xs sm:text-sm mb-4 leading-relaxed">
+                        Program rehabilitasi terumbu karang. Fungsi <span class="math-font font-bold text-blue-700">f(x)</span> memetakan luas area (m²) ke jumlah grid besi. Fungsi <span class="math-font font-bold text-purple-700">g(x)</span> memetakan jumlah grid besi ke total bibit karang yang dibutuhkan.
+                    </p>
+
+                    <!-- Formula Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-blue-600 block mb-0.5">Tahap 1: Luas Area m² ➔ Grid Besi</span>
+                            <span class="math-font font-extrabold text-blue-800 text-base md:text-lg">f(x) = x²</span>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 text-center">
+                            <span class="text-[10px] uppercase font-bold text-purple-600 block mb-0.5">Tahap 2: Grid Besi ➔ Bibit Karang</span>
+                            <span class="math-font font-extrabold text-purple-800 text-base md:text-lg">g(x) = 4x + 10</span>
+                        </div>
+                    </div>
+
+                    <!-- Pertanyaan -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Tantangan:</h4>
+                        <div class="math-font font-semibold text-gray-900 bg-amber-50/80 border-l-4 border-amber-400 p-3 rounded-r text-sm sm:text-base">
+                            Jika relawan menanam di area seluas <b>5 m²</b> (x = 5), berapa total bibit karang yang harus disiapkan? Hitung <span class="font-extrabold text-rose-800">(g ∘ f)(5)</span>!
+                        </div>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="pos-options-4" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Feedback Container -->
+                    <div id="pos-feedback-4" class="hidden mb-4 p-3.5 rounded-xl text-xs sm:text-sm"></div>
+
+                    <!-- Down Jump Button -->
+                    <div class="flex justify-end pt-2 border-t border-gray-100">
+                        <button type="button" onclick="scrollToSection('sec-hasil')" class="text-xs font-bold text-rose-700 hover:text-rose-900 bg-rose-50 hover:bg-rose-100 px-4 py-2 rounded-xl transition cursor-pointer flex items-center gap-1.5">
+                            <span>Selesaikan & Lihat Hasil Evaluasi</span>
+                            <span>🏆</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- SECTION 6: Hasil Akhir & Peringkat Siswa -->
+                <section id="sec-hasil" class="scroll-section bg-gradient-to-br from-purple-50/90 via-white to-green-50/90 border-2 border-purple-300 rounded-3xl p-6 sm:p-8 shadow-md text-center">
+                    <span class="text-6xl mb-3 float-anim inline-block">🏆</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-1">Hasil Evaluasi Petualangan Nusantara</h2>
+                    <p id="scroll-final-subtitle" class="text-gray-600 text-xs sm:text-sm mb-6 max-w-md mx-auto">
+                        Luar biasa! Seluruh pos petualangan matematika fungsi komposisi telah kamu jelajahi dalam mode scrolling.
+                    </p>
+
+                    <!-- Score and Time Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto mb-5">
+                        <div class="bg-white p-4 rounded-2xl shadow-xs border border-green-200 flex flex-col items-center">
+                            <span class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Total Skor Kamu</span>
+                            <div id="scroll-final-score" class="text-4xl math-font font-black text-green-600">0</div>
+                            <span class="text-xs text-gray-400 mt-0.5">Maksimal: 100 Poin</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl shadow-xs border border-blue-200 flex flex-col items-center">
+                            <span class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Waktu Penyelesaian</span>
+                            <div id="scroll-final-time" class="text-4xl math-font font-black text-blue-600">00:00</div>
+                            <span id="scroll-final-time-text" class="text-xs text-gray-400 mt-0.5">0 detik</span>
+                        </div>
+                    </div>
+
+                    <!-- Badge Peringkat Live Server -->
+                    <div id="scroll-final-rank-badge" class="bg-amber-50 border border-amber-300 rounded-2xl p-4 max-w-md mx-auto mb-6 flex items-center justify-center gap-3 shadow-xs">
+                        <span id="scroll-final-rank-icon" class="text-3xl">🏅</span>
+                        <div class="text-left">
+                            <div class="text-[11px] font-bold uppercase text-amber-800 tracking-wider">Peringkat Kelas Siswa</div>
+                            <div id="scroll-final-rank-text" class="text-xs sm:text-sm font-black text-amber-950">Menyimpan skor siswa ke server...</div>
+                        </div>
+                    </div>
+
+                    <p id="scroll-final-message" class="text-sm font-semibold text-gray-800 mb-6">
+                        Silakan jawab seluruh pos untuk melihat peringkat lengkap kelas!
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                        <button onclick="viewLeaderboardFromEnd()" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-xl btn-hover shadow-md text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer">
+                            <span>🏆 Papan Peringkat Kelas</span>
+                        </button>
+                        <button onclick="resetAdventure()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl btn-hover shadow-md text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Ulangi Misi 🔄</span>
+                        </button>
+                    </div>
+                </section>
+
             </div>
         </div>
 
@@ -411,7 +695,7 @@
                     <div>
                         <div class="flex items-center gap-2">
                             <h2 class="text-xl md:text-2xl font-extrabold text-blue-950">Portal Admin Guru</h2>
-                            <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-blue-200">🔐 Ibu Guru Ulfah</span>
+                            <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-blue-200">🔐 Mode Admin Guru</span>
                         </div>
                         <p class="text-xs text-gray-500 font-medium">Matematika Tingkat Lanjut / Fase F - Kelas 11 (Komposisi Fungsi)</p>
                     </div>
@@ -895,28 +1179,35 @@
             }
         ];
 
-        let currentLevel = 0;
         let score = 0;
         const pointsPerLevel = 20;
 
         // Admin & Student State
         let isAdminLoggedIn = sessionStorage.getItem('nusantara_admin_auth') === 'true';
         let studentName = localStorage.getItem('nusantara_student_name') || '';
-        let studentClass = localStorage.getItem('nusantara_student_class') || 'XI MIPA 1';
+        let studentClass = localStorage.getItem('nusantara_student_class') || 'XI-A';
         let timerInterval = null;
         let timeElapsedSeconds = 0;
         let answersHistory = [];
+        let posScores = [0, 0, 0, 0, 0];
+        let posAnswered = [false, false, false, false, false];
         let cachedLeaderboard = [];
 
         // DOM Elements
         const sceneRoleSelection = document.getElementById('scene-role-selection');
         const sceneLoginSiswa = document.getElementById('scene-login-siswa');
         const sceneLoginGuru = document.getElementById('scene-login-guru');
-        const scenePemantik = document.getElementById('scene-pemantik');
-        const sceneGame = document.getElementById('scene-game');
-        const sceneEnd = document.getElementById('scene-end');
+        const sceneAdventureScroll = document.getElementById('scene-adventure-scroll');
         const sceneGuru = document.getElementById('scene-guru');
         const btnBackHome = document.getElementById('btn-back-home');
+
+        // Smooth Scroll Navigation Helper
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
 
         // Initialize saved student profile on load
         window.addEventListener('DOMContentLoaded', () => {
@@ -937,10 +1228,8 @@
 
         function updateStudentLabels() {
             if (studentName) {
-                const tagPemantik = document.getElementById('pemantik-student-tag');
-                if (tagPemantik) tagPemantik.innerText = `${studentName} (${studentClass || 'XI'})`;
-                const tagGame = document.getElementById('player-identity-tag');
-                if (tagGame) tagGame.innerText = `👤 Siswa: ${studentName} (${studentClass || 'XI'})`;
+                const scrollTag = document.getElementById('scroll-student-tag');
+                if (scrollTag) scrollTag.innerText = `${studentName} (${studentClass || 'XI-A'})`;
             }
         }
 
@@ -948,10 +1237,8 @@
             sceneRoleSelection.classList.add('hidden-scene');
             if (sceneLoginSiswa) sceneLoginSiswa.classList.add('hidden-scene');
             if (sceneLoginGuru) sceneLoginGuru.classList.add('hidden-scene');
-            scenePemantik.classList.add('hidden-scene');
-            sceneGame.classList.add('hidden-scene');
-            sceneEnd.classList.add('hidden-scene');
-            sceneGuru.classList.add('hidden-scene');
+            if (sceneAdventureScroll) sceneAdventureScroll.classList.add('hidden-scene');
+            if (sceneGuru) sceneGuru.classList.add('hidden-scene');
         }
 
         function goToHome() {
@@ -966,7 +1253,7 @@
             btnBackHome.classList.remove('hidden');
 
             if (role === 'siswa') {
-                // Tampilkan halaman login siswa terlebih dahulu (nama & kelas)
+                // Tampilkan halaman login siswa terlebih dahulu (nama & rombel XI-A s/d XI-F)
                 sceneLoginSiswa.classList.remove('hidden-scene');
                 const nameInput = document.getElementById('student-login-name');
                 if (nameInput) {
@@ -986,16 +1273,16 @@
                     const passInput = document.getElementById('admin-login-password');
                     const errBox = document.getElementById('admin-login-error');
                     if (errBox) errBox.classList.add('hidden');
-                    if (passInput) passInput.value = '';
-                    if (userInput) {
-                        userInput.value = 'ulfah'; // prefill with requested username for convenience
-                        if (passInput) passInput.focus();
+                    if (userInput) userInput.value = '';
+                    if (passInput) {
+                        passInput.value = '';
+                        userInput.focus();
                     }
                 }
             }
         }
 
-        // Student Login Handler
+        // Student Login Handler -> Enters Mode Scrolling
         function handleStudentLogin(event) {
             if (event) event.preventDefault();
             const nameInput = document.getElementById('student-login-name');
@@ -1004,7 +1291,7 @@
             const errText = document.getElementById('student-login-error-text');
 
             const enteredName = (nameInput ? nameInput.value : '').trim();
-            const enteredClass = (classInput ? classInput.value : '').trim() || 'XI MIPA 1';
+            const enteredClass = (classInput ? classInput.value : '').trim() || 'XI-A';
 
             if (!enteredName) {
                 if (errText) errText.innerText = 'Silakan isi Nama Lengkap Siswa terlebih dahulu!';
@@ -1021,10 +1308,8 @@
             localStorage.setItem('nusantara_student_class', studentClass);
             updateStudentLabels();
 
-            // Masuk ke fase orientasi pemantik setelah login
-            hideAllScenes();
-            scenePemantik.classList.remove('hidden-scene');
-            btnBackHome.classList.remove('hidden');
+            // Masuk langsung ke Mode Scrolling Petualangan
+            startScrollingAdventure();
         }
 
         function setQuickClass(className) {
@@ -1038,7 +1323,7 @@
             selectRole('siswa');
         }
 
-        // Admin Guru Login Handler (username: ulfah, password: 123456)
+        // Admin Guru Login Handler (credentials kept secure on server)
         async function handleAdminLogin(event) {
             if (event) event.preventDefault();
             const userInput = document.getElementById('admin-login-username');
@@ -1080,7 +1365,7 @@
                 }
             } catch (err) {
                 if (errText) {
-                    errText.innerText = 'Username atau password admin salah! Periksa kembali username "ulfah" dan password "123456".';
+                    errText.innerText = 'Username atau password admin salah! Silakan coba lagi.';
                 }
                 if (errBox) errBox.classList.remove('hidden');
                 if (passInput) {
@@ -1098,7 +1383,6 @@
         function logoutAdmin() {
             isAdminLoggedIn = false;
             sessionStorage.removeItem('nusantara_admin_auth');
-            alert('Anda telah keluar dari Portal Admin Guru.');
             goToHome();
         }
 
@@ -1149,11 +1433,12 @@
             }
         }
 
-        function checkPemantik(choice) {
-            const feedback = document.getElementById('pemantik-feedback');
+        // Pemantik Phase in Scrolling Mode
+        function checkPemantikScroll(choice) {
+            const feedback = document.getElementById('scroll-pemantik-feedback');
             feedback.classList.remove('hidden');
-            const optA = document.getElementById('btn-pemantik-a');
-            const optB = document.getElementById('btn-pemantik-b');
+            const optA = document.getElementById('btn-pemantik-scroll-a');
+            const optB = document.getElementById('btn-pemantik-scroll-b');
 
             if (choice === 'a') {
                 optA.className = "p-3.5 rounded-xl border-2 border-green-500 bg-green-50 text-left transition shadow-md";
@@ -1169,7 +1454,7 @@
                             <div class="text-gray-600 pt-1 border-t border-gray-100 font-sans italic">Fungsi Komposisi: (g ∘ f)(50.000) = Rp 44.000</div>
                         </div>
                         <p class="text-xs text-gray-700 mt-2 leading-relaxed">
-                            Karena diskon dipotong terlebih dahulu, dasar pengenaan pajak menjadi lebih kecil sehingga konsumen berhemat Rp 1.000!
+                            Karena diskon dipotong terlebih dahulu, dasar pengenaan pajak menjadi lebih kecil sehingga pembeli hemat Rp 1.000!
                         </p>
                     </div>
                 `;
@@ -1194,7 +1479,7 @@
             }
         }
 
-        // Timer Management
+        // Timer Management for Scrolling Mode
         function startGameTimer() {
             stopGameTimer();
             timeElapsedSeconds = 0;
@@ -1226,158 +1511,250 @@
         }
 
         function updateTimerDisplay() {
-            const timerEl = document.getElementById('game-timer');
+            const timerEl = document.getElementById('scroll-game-timer');
             if (timerEl) {
                 timerEl.innerText = formatTimeMMSS(timeElapsedSeconds);
             }
         }
 
-        function startGame() {
-            if (!studentName) {
-                selectRole('siswa');
-                return;
-            }
-
-            updateStudentLabels();
-
+        // Start / Reset Scrolling Adventure
+        function startScrollingAdventure() {
             hideAllScenes();
-            sceneGame.classList.remove('hidden-scene');
+            sceneAdventureScroll.classList.remove('hidden-scene');
             btnBackHome.classList.remove('hidden');
 
-            currentLevel = 0;
-            score = 0;
-            answersHistory = [];
-            updateScore();
+            updateStudentLabels();
+            resetAdventureState();
+            renderAllPosOptions();
             startGameTimer();
-            loadLevel();
+
+            // Smooth scroll to orientation top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function loadLevel() {
-            if (currentLevel >= levels.length) {
-                endGame();
-                return;
+        function resetAdventureState() {
+            score = 0;
+            posScores = [0, 0, 0, 0, 0];
+            posAnswered = [false, false, false, false, false];
+            answersHistory = [];
+
+            updateScrollDashboard();
+
+            // Reset navigation pills
+            for (let i = 0; i < 5; i++) {
+                const pill = document.getElementById(`nav-pill-${i + 1}`);
+                if (pill) {
+                    pill.className = "px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-green-100 hover:text-green-900 shrink-0 transition cursor-pointer border border-gray-200 text-[11px]";
+                    const icons = ['🏝️', '🎨', '🛶', '⛵', '🪸'];
+                    pill.innerText = `${icons[i]} Pos ${i + 1}`;
+                }
+                const badge = document.getElementById(`pos-status-badge-${i}`);
+                if (badge) {
+                    badge.className = "text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200";
+                    badge.innerText = "⏳ Belum Dijawab";
+                }
+                const feedbackBox = document.getElementById(`pos-feedback-${i}`);
+                if (feedbackBox) {
+                    feedbackBox.className = "hidden mb-4 p-3.5 rounded-xl text-xs sm:text-sm";
+                    feedbackBox.innerHTML = '';
+                }
             }
 
-            const levelData = levels[currentLevel];
-            
-            // Update UI
-            document.getElementById('level-title').innerText = `Pos ${currentLevel + 1}: ${levelData.island}`;
-            document.getElementById('level-subtitle').innerText = levelData.location;
-            document.getElementById('level-icon').innerText = levelData.icon;
-            document.getElementById('problem-context').innerHTML = levelData.context;
-            document.getElementById('func-f').innerText = levelData.fText;
-            document.getElementById('func-g').innerText = levelData.gText;
-            document.getElementById('question-text').innerText = levelData.question;
-            
-            // Update Progress
-            const progressPercentage = ((currentLevel) / levels.length) * 100;
-            document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+            // Reset final result card
+            document.getElementById('scroll-final-score').innerText = "0";
+            document.getElementById('scroll-final-time').innerText = "00:00";
+            document.getElementById('scroll-final-time-text').innerText = "0 detik";
+            document.getElementById('scroll-final-rank-text').innerText = "Jawab seluruh pos untuk mendaftarkan peringkat!";
+            document.getElementById('scroll-final-rank-icon').innerText = "🏅";
+        }
 
-            // Reset and Render Options
-            const optionsContainer = document.getElementById('options-container');
-            optionsContainer.innerHTML = '';
-            
-            // Hide feedback
-            const feedbackEl = document.getElementById('feedback-message');
-            feedbackEl.classList.add('hidden');
-            feedbackEl.className = 'hidden mt-4 text-center font-bold p-3 rounded-lg text-white';
+        function renderAllPosOptions() {
+            levels.forEach((levelData, posIdx) => {
+                const container = document.getElementById(`pos-options-${posIdx}`);
+                if (!container) return;
+                container.innerHTML = '';
 
-            // Shuffle options
-            const shuffledOptions = [...levelData.options].sort(() => Math.random() - 0.5);
-
-            shuffledOptions.forEach((opt) => {
-                const btn = document.createElement('button');
-                btn.className = 'bg-white hover:bg-green-50 text-gray-800 font-semibold py-3 px-4 border border-gray-300 rounded-xl shadow-xs text-center transition-all math-font text-base md:text-lg cursor-pointer btn-hover';
-                btn.innerText = opt.text;
-                btn.onclick = () => checkAnswer(opt, btn);
-                optionsContainer.appendChild(btn);
+                // Letters for options
+                const letters = ['A', 'B', 'C', 'D'];
+                levelData.options.forEach((opt, optIdx) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.id = `btn-pos-${posIdx}-opt-${optIdx}`;
+                    btn.className = 'w-full text-left p-3.5 rounded-xl border border-gray-200 hover:border-green-400 bg-white hover:bg-green-50/50 shadow-2xs transition-all cursor-pointer flex items-center gap-3 btn-hover';
+                    btn.innerHTML = `
+                        <span class="w-7 h-7 rounded-lg bg-gray-100 text-gray-700 font-bold text-xs flex items-center justify-center shrink-0 border border-gray-300">
+                            ${letters[optIdx]}
+                        </span>
+                        <span class="math-font font-bold text-sm sm:text-base text-gray-800">
+                            ${escapeHtml(opt.text)}
+                        </span>
+                    `;
+                    btn.onclick = () => handlePosAnswer(posIdx, optIdx, btn);
+                    container.appendChild(btn);
+                });
             });
         }
 
-        function checkAnswer(option, btnElement) {
-            // Disable all buttons to prevent multiple clicks
-            const buttons = document.querySelectorAll('#options-container button');
-            buttons.forEach(b => b.disabled = true);
+        function handlePosAnswer(posIndex, optionIndex, clickedBtn) {
+            if (posAnswered[posIndex]) return; // already answered
+            posAnswered[posIndex] = true;
 
-            const feedbackEl = document.getElementById('feedback-message');
-            feedbackEl.classList.remove('hidden');
+            const levelData = levels[posIndex];
+            const chosenOption = levelData.options[optionIndex];
+            const isCorrect = Boolean(chosenOption.isCorrect);
 
-            const isCorrect = Boolean(option.isCorrect);
+            // Record history
             answersHistory.push({
-                pos: currentLevel + 1,
-                island: levels[currentLevel].island,
+                pos: posIndex + 1,
+                island: levelData.island,
                 isCorrect: isCorrect,
-                chosenText: option.text
+                chosenText: chosenOption.text
             });
+
+            // Disable all buttons in this pos container
+            const container = document.getElementById(`pos-options-${posIndex}`);
+            const buttons = container.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('btn-hover', 'hover:bg-green-50/50', 'hover:border-green-400');
+            });
+
+            const feedbackEl = document.getElementById(`pos-feedback-${posIndex}`);
+            const badgeEl = document.getElementById(`pos-status-badge-${posIndex}`);
+            const pillEl = document.getElementById(`nav-pill-${posIndex + 1}`);
+
+            // Find correct option index
+            const correctOptIdx = levelData.options.findIndex(o => o.isCorrect);
+            const correctOption = levelData.options[correctOptIdx];
 
             if (isCorrect) {
-                btnElement.classList.remove('bg-white', 'text-gray-800', 'border-gray-300', 'hover:bg-green-50');
-                btnElement.classList.add('bg-green-500', 'text-white', 'border-green-600', 'scale-105');
-                
-                score += pointsPerLevel;
-                updateScore();
-                
-                feedbackEl.classList.add('bg-green-600');
-                feedbackEl.innerHTML = `✅ Benar! <br><span class="text-xs md:text-sm font-normal">${option.explanation || 'Jawaban Anda tepat!'}</span>`;
+                posScores[posIndex] = pointsPerLevel;
+                clickedBtn.className = 'w-full text-left p-3.5 rounded-xl border-2 border-green-500 bg-green-50 shadow-sm flex items-center gap-3';
+                const badge = clickedBtn.querySelector('span');
+                if (badge) badge.className = 'w-7 h-7 rounded-lg bg-green-600 text-white font-black text-xs flex items-center justify-center shrink-0';
+
+                badgeEl.className = "text-xs font-black text-green-700 bg-green-100 px-3 py-1 rounded-full border border-green-300";
+                badgeEl.innerText = "✅ Benar (+20 Poin)";
+
+                feedbackEl.className = "mb-4 p-3.5 rounded-xl bg-green-50 border border-green-200 text-green-900 block";
+                feedbackEl.innerHTML = `
+                    <div class="font-extrabold text-sm mb-1 text-green-800 flex items-center gap-1.5">
+                        <span>🎉</span> Tepat Sekali! (+20 Poin)
+                    </div>
+                    <div class="text-xs leading-relaxed text-gray-700 font-sans">
+                        <b>Penjelasan Matematis:</b> ${chosenOption.explanation || 'Perhitungan substitusi fungsi komposisi Anda tepat!'}
+                    </div>
+                `;
             } else {
-                btnElement.classList.remove('bg-white', 'text-gray-800', 'border-gray-300', 'hover:bg-green-50');
-                btnElement.classList.add('bg-red-500', 'text-white', 'border-red-600');
-                
-                // Find and highlight correct answer
-                const levelData = levels[currentLevel];
-                const correctOption = levelData.options.find(o => o.isCorrect);
-                const correctText = correctOption ? correctOption.text : '';
-                const correctExplanation = correctOption ? correctOption.explanation : '';
-                
-                feedbackEl.classList.add('bg-red-500');
-                feedbackEl.innerHTML = `❌ Kurang Tepat. <br><span class="text-xs md:text-sm font-normal">Kunci yang benar adalah <b>${correctText}</b>.<br>${correctExplanation}</span>`;
+                posScores[posIndex] = 0;
+                clickedBtn.className = 'w-full text-left p-3.5 rounded-xl border-2 border-red-400 bg-red-50 shadow-sm flex items-center gap-3 opacity-90';
+                const badge = clickedBtn.querySelector('span');
+                if (badge) badge.className = 'w-7 h-7 rounded-lg bg-red-600 text-white font-black text-xs flex items-center justify-center shrink-0';
+
+                // Highlight correct button
+                const correctBtn = document.getElementById(`btn-pos-${posIndex}-opt-${correctOptIdx}`);
+                if (correctBtn) {
+                    correctBtn.className = 'w-full text-left p-3.5 rounded-xl border-2 border-green-500 bg-green-50 shadow-sm flex items-center gap-3';
+                    const correctBadge = correctBtn.querySelector('span');
+                    if (correctBadge) correctBadge.className = 'w-7 h-7 rounded-lg bg-green-600 text-white font-black text-xs flex items-center justify-center shrink-0';
+                }
+
+                badgeEl.className = "text-xs font-black text-red-700 bg-red-100 px-3 py-1 rounded-full border border-red-300";
+                badgeEl.innerText = "❌ Kurang Tepat (+0 Poin)";
+
+                feedbackEl.className = "mb-4 p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-900 block";
+                feedbackEl.innerHTML = `
+                    <div class="font-extrabold text-sm mb-1 text-red-800 flex items-center gap-1.5">
+                        <span>💡</span> Jawaban Anda: ${escapeHtml(chosenOption.text)}
+                    </div>
+                    <div class="text-xs leading-relaxed text-gray-700 font-sans">
+                        Kunci yang tepat adalah <b>${escapeHtml(correctOption.text)}</b>.<br>
+                        <b>Langkah:</b> ${correctOption.explanation || 'Gunakan substitusi bertahap ke dalam fungsi luar.'}
+                    </div>
+                `;
             }
 
-            // Move to next level after delay
-            setTimeout(() => {
-                currentLevel++;
-                loadLevel();
-            }, 3200);
+            // Update nav pill status
+            if (pillEl) {
+                pillEl.className = isCorrect
+                    ? "px-2.5 py-1 rounded-full bg-green-100 text-green-900 font-bold shrink-0 border border-green-300 text-[11px]"
+                    : "px-2.5 py-1 rounded-full bg-red-100 text-red-900 font-bold shrink-0 border border-red-300 text-[11px]";
+                pillEl.innerText = `${isCorrect ? '✅' : '❌'} Pos ${posIndex + 1}`;
+            }
+
+            // Update live dashboard
+            updateScrollDashboard();
+
+            // Check if all answered
+            const answeredTotal = posAnswered.filter(Boolean).length;
+            if (answeredTotal === 5) {
+                finishScrollingAdventure();
+            } else {
+                // If not last, gently prompt next pos
+                const nextPosIndex = posIndex + 1;
+                if (nextPosIndex < 5 && !posAnswered[nextPosIndex]) {
+                    setTimeout(() => {
+                        scrollToSection(`sec-pos-${nextPosIndex + 1}`);
+                    }, 1400);
+                }
+            }
         }
 
-        function updateScore() {
-            document.getElementById('score-display').innerText = score;
+        function updateScrollDashboard() {
+            score = posScores.reduce((acc, curr) => acc + curr, 0);
+            const answeredTotal = posAnswered.filter(Boolean).length;
+
+            const scoreDisplay = document.getElementById('scroll-score-display');
+            if (scoreDisplay) scoreDisplay.innerText = score;
+
+            const countDisplay = document.getElementById('scroll-answered-count');
+            if (countDisplay) countDisplay.innerText = answeredTotal;
+
+            const progressBar = document.getElementById('scroll-progress-bar');
+            if (progressBar) {
+                const pct = (answeredTotal / 5) * 100;
+                progressBar.style.width = `${pct}%`;
+            }
         }
 
-        function endGame() {
+        function finishScrollingAdventure() {
             stopGameTimer();
-            sceneGame.classList.add('hidden-scene');
-            sceneEnd.classList.remove('hidden-scene');
-            
-            document.getElementById('final-score').innerText = score;
-            document.getElementById('final-time').innerText = formatTimeMMSS(timeElapsedSeconds);
-            document.getElementById('final-time-text').innerText = formatTimeIndonesian(timeElapsedSeconds);
-            
+
+            // Update final evaluation section
+            document.getElementById('scroll-final-score').innerText = score;
+            document.getElementById('scroll-final-time').innerText = formatTimeMMSS(timeElapsedSeconds);
+            document.getElementById('scroll-final-time-text').innerText = formatTimeIndonesian(timeElapsedSeconds);
+
             let message = "";
             if (score === 100) message = "🌟 Sempurna! Kamu adalah Master Komposisi Fungsi sejati!";
             else if (score >= 80) message = "👍 Luar Biasa! Kamu menguasai hampir seluruh misteri fungsi Nusantara.";
             else if (score >= 60) message = "👏 Bagus! Terus asah pemahaman komposisi fungsionalmu.";
             else message = "💪 Tetap Semangat! Pelajari kunci jawaban dan coba lagi untuk skor lebih tinggi.";
-            
-            document.getElementById('final-message').innerText = message;
+
+            document.getElementById('scroll-final-message').innerText = message;
 
             // Submit score to server
-            submitScoreToServer();
+            submitScoreToServerScroll();
+
+            // Smoothly scroll down to result card
+            setTimeout(() => {
+                scrollToSection('sec-hasil');
+            }, 1200);
         }
 
-        async function submitScoreToServer() {
-            const rankTextEl = document.getElementById('final-rank-text');
-            const rankIconEl = document.getElementById('final-rank-icon');
+        async function submitScoreToServerScroll() {
+            const rankTextEl = document.getElementById('scroll-final-rank-text');
+            const rankIconEl = document.getElementById('scroll-final-rank-icon');
             rankTextEl.innerText = "Mendaftarkan skor ke Papan Peringkat...";
 
             const payload = {
                 nama: studentName || 'Siswa Tamu',
-                kelas: studentClass || 'XI Umum',
+                kelas: studentClass || 'XI-A',
                 skor: score,
                 waktuDetik: timeElapsedSeconds,
                 detail: {
-                    benar: answersHistory.filter(a => a.isCorrect).length,
-                    total: levels.length,
+                    benar: posScores.filter(s => s > 0).length,
+                    total: 5,
                     history: answersHistory
                 }
             };
@@ -1408,9 +1785,8 @@
             }
         }
 
-        function resetGame() {
-            hideAllScenes();
-            scenePemantik.classList.remove('hidden-scene');
+        function resetAdventure() {
+            startScrollingAdventure();
         }
 
         // Leaderboard API & Rendering
@@ -1589,11 +1965,11 @@
 
         async function loadSampleScores() {
             const samples = [
-                { nama: 'Budi Santoso', kelas: 'XI MIPA 1', skor: 100, waktuDetik: 95, detail: { benar: 5, total: 5 } },
-                { nama: 'Annisa Rahmawati', kelas: 'XI MIPA 2', skor: 100, waktuDetik: 124, detail: { benar: 5, total: 5 } },
-                { nama: 'Rian Pratama', kelas: 'XI MIPA 1', skor: 80, waktuDetik: 88, detail: { benar: 4, total: 5 } },
-                { nama: 'Siti Fauziyah', kelas: 'XI MIPA 3', skor: 80, waktuDetik: 110, detail: { benar: 4, total: 5 } },
-                { nama: 'Dedi Kurniawan', kelas: 'XI MIPA 2', skor: 60, waktuDetik: 140, detail: { benar: 3, total: 5 } }
+                { nama: 'Budi Santoso', kelas: 'XI-A', skor: 100, waktuDetik: 95, detail: { benar: 5, total: 5 } },
+                { nama: 'Annisa Rahmawati', kelas: 'XI-B', skor: 100, waktuDetik: 124, detail: { benar: 5, total: 5 } },
+                { nama: 'Rian Pratama', kelas: 'XI-A', skor: 80, waktuDetik: 88, detail: { benar: 4, total: 5 } },
+                { nama: 'Siti Fauziyah', kelas: 'XI-C', skor: 80, waktuDetik: 110, detail: { benar: 4, total: 5 } },
+                { nama: 'Dedi Kurniawan', kelas: 'XI-D', skor: 60, waktuDetik: 140, detail: { benar: 3, total: 5 } }
             ];
 
             for (const sample of samples) {

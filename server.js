@@ -16,7 +16,7 @@ let studentScores = [
   {
     id: 'score-1',
     nama: 'Budi Santoso',
-    kelas: 'XI MIPA 1',
+    kelas: 'XI-A',
     skor: 100,
     waktuDetik: 95,
     tanggal: new Date(Date.now() - 3600000 * 2).toISOString(),
@@ -25,7 +25,7 @@ let studentScores = [
   {
     id: 'score-2',
     nama: 'Annisa Rahmawati',
-    kelas: 'XI MIPA 2',
+    kelas: 'XI-B',
     skor: 100,
     waktuDetik: 124,
     tanggal: new Date(Date.now() - 3600000 * 3).toISOString(),
@@ -34,7 +34,7 @@ let studentScores = [
   {
     id: 'score-3',
     nama: 'Rian Pratama',
-    kelas: 'XI MIPA 1',
+    kelas: 'XI-A',
     skor: 80,
     waktuDetik: 88,
     tanggal: new Date(Date.now() - 3600000 * 4).toISOString(),
@@ -43,7 +43,7 @@ let studentScores = [
   {
     id: 'score-4',
     nama: 'Siti Fauziyah',
-    kelas: 'XI MIPA 3',
+    kelas: 'XI-C',
     skor: 80,
     waktuDetik: 110,
     tanggal: new Date(Date.now() - 3600000 * 5).toISOString(),
@@ -52,7 +52,7 @@ let studentScores = [
   {
     id: 'score-5',
     nama: 'Dedi Kurniawan',
-    kelas: 'XI MIPA 2',
+    kelas: 'XI-B',
     skor: 60,
     waktuDetik: 140,
     tanggal: new Date(Date.now() - 3600000 * 6).toISOString(),
@@ -90,7 +90,7 @@ app.post('/api/admin/login', (req, res) => {
 
   return res.status(401).json({
     success: false,
-    message: 'Username atau password salah! (Gunakan username: ulfah dan password: 123456)'
+    message: 'Username atau password salah! Silakan coba lagi.'
   });
 });
 

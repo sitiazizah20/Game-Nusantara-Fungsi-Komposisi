@@ -70,6 +70,30 @@ function getSortedScores() {
   });
 }
 
+// POST Admin login endpoint (username: ulfah, password: 123456)
+app.post('/api/admin/login', (req, res) => {
+  const { username, password } = req.body || {};
+  const cleanUsername = String(username || '').trim().toLowerCase();
+  const cleanPassword = String(password || '');
+
+  if (cleanUsername === 'ulfah' && cleanPassword === '123456') {
+    return res.json({
+      success: true,
+      user: {
+        username: 'ulfah',
+        role: 'admin',
+        displayName: 'Ibu Guru Ulfah, S.Pd.'
+      },
+      message: 'Login Admin Guru berhasil'
+    });
+  }
+
+  return res.status(401).json({
+    success: false,
+    message: 'Username atau password salah! (Gunakan username: ulfah dan password: 123456)'
+  });
+});
+
 // GET all scores sorted
 app.get('/api/scores', (req, res) => {
   const sorted = getSortedScores();

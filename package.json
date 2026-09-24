@@ -1,0 +1,15 @@
+{
+  "name": "petualangan-nusantara-fungsi-komposisi",
+  "version": "1.0.0",
+  "description": "Game edukasi interaktif matematika kelas 11 materi fungsi komposisi dengan petualangan 5 pulau dan modul ajar guru.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'Static build ready'",
+    "lint": "node --check server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

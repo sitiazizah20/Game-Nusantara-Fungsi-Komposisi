@@ -1,0 +1,8 @@
+{
+  "name": "Petualangan Nusantara: Misteri Komposisi Fungsi",
+  "description": "Game edukasi interaktif matematika kelas 11 materi fungsi komposisi dengan petualangan 5 pulau dan modul ajar guru.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

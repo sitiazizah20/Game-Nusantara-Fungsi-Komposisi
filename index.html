@@ -302,7 +302,10 @@
                             <h2 id="level-title" class="text-lg md:text-xl font-black text-gray-900">Pos 1: Sumatera</h2>
                             <span id="pos-counter-badge" class="bg-green-100 text-green-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Pos 1 / 5</span>
                         </div>
-                        <p id="level-subtitle" class="text-xs md:text-sm text-gray-500 font-semibold">Kebun Kopi Gayo</p>
+                        <div class="flex flex-wrap items-center gap-2 mt-0.5">
+                            <p id="level-subtitle" class="text-xs md:text-sm text-gray-500 font-semibold">Kebun Kopi Gayo</p>
+                            <span id="level-topic-badge" class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2.5 py-0.5 rounded-md border border-blue-200">Evaluasi Titik (g ∘ f)(a)</span>
+                        </div>
                     </div>
                 </div>
                 <div class="flex items-center gap-2 sm:gap-3">
@@ -329,16 +332,19 @@
             </p>
 
             <!-- Function Definitions Cards -->
-            <div class="bg-green-50/70 rounded-2xl p-4 mb-4 border border-green-200 flex flex-col sm:flex-row gap-3 justify-center">
+            <div class="bg-gradient-to-r from-blue-50/70 via-emerald-50/50 to-purple-50/70 rounded-2xl p-4 mb-4 border border-green-200 flex flex-col sm:flex-row gap-3 justify-center shadow-xs">
                 <div class="text-center flex-1">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block mb-1">Tahap 1</span>
-                    <div id="func-f" class="math-font text-base md:text-lg font-bold text-blue-700 bg-white py-2 px-3 rounded-xl shadow-2xs border border-blue-200">
+                    <span id="func-f-title" class="text-[11px] font-bold text-blue-800 uppercase tracking-wider block mb-1">Tahap 1: f(x)</span>
+                    <div id="func-f" class="math-font text-base md:text-lg font-black text-blue-700 bg-white py-2.5 px-3 rounded-xl shadow-2xs border border-blue-200">
                         f(x) = ...
                     </div>
                 </div>
+                <div class="hidden sm:flex items-center justify-center text-gray-400 font-black text-xl">
+                    ➔
+                </div>
                 <div class="text-center flex-1">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block mb-1">Tahap 2</span>
-                    <div id="func-g" class="math-font text-base md:text-lg font-bold text-purple-700 bg-white py-2 px-3 rounded-xl shadow-2xs border border-purple-200">
+                    <span id="func-g-title" class="text-[11px] font-bold text-purple-800 uppercase tracking-wider block mb-1">Tahap 2: g(x)</span>
+                    <div id="func-g" class="math-font text-base md:text-lg font-black text-purple-700 bg-white py-2.5 px-3 rounded-xl shadow-2xs border border-purple-200">
                         g(x) = ...
                     </div>
                 </div>
@@ -533,241 +539,290 @@
                 </div>
             </div>
 
-            <!-- TAB 2: Kunci Jawaban Lengkap & Pembahasan -->
-            <div id="guru-tab-kunci" class="hidden-scene space-y-4 max-h-[500px] overflow-y-auto pr-1">
-                <div class="bg-green-50 border border-green-200 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-xs">
+            <!-- TAB 2: Kunci Jawaban Lengkap & Pembahasan Komposisi Fungsi -->
+            <div id="guru-tab-kunci" class="hidden-scene space-y-4 max-h-[520px] overflow-y-auto pr-1">
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-300 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
                     <div>
-                        <div class="flex items-center gap-1.5 font-bold text-green-900 text-base">
-                            <span>🔑</span> Panduan Kunci Jawaban Resmi 5 Pos Nusantara
+                        <div class="flex items-center gap-2 font-black text-green-950 text-base">
+                            <span>🔑</span> Panduan Resmi Kunci Jawaban & Analisis Miskonsepsi 5 Pos Nusantara
                         </div>
-                        <p class="text-xs text-green-800/80 mt-0.5">
-                            Dilengkapi tahapan matematis rinci dan identifikasi miskonsepsi umum yang sering dialami peserta didik.
+                        <p class="text-xs text-green-800 mt-1">
+                            Disusun sesuai Capaian Pembelajaran Kurikulum Merdeka Matematika Fase F (Kelas XI SMA) - Materi Pokok: Komposisi Fungsi.
                         </p>
                     </div>
-                    <button onclick="window.print()" class="self-start sm:self-center bg-white hover:bg-green-100 text-green-800 border border-green-300 text-xs font-bold py-1.5 px-3 rounded-lg shadow-xs transition cursor-pointer flex items-center gap-1">
+                    <button onclick="window.print()" class="self-start sm:self-center bg-white hover:bg-green-100 text-green-900 border border-green-300 text-xs font-bold py-2 px-3.5 rounded-xl shadow-xs transition cursor-pointer flex items-center gap-1.5">
                         <span>🖨️</span> Cetak / Simpan PDF
                     </button>
                 </div>
 
                 <!-- Pos 1: Sumatera -->
                 <div class="bg-white border-2 border-green-300 rounded-2xl p-5 shadow-xs">
-                    <div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
-                        <div class="flex items-center gap-2">
-                            <span class="text-2xl">☕</span>
+                    <div class="flex flex-wrap items-center justify-between mb-3 border-b border-gray-100 pb-2.5 gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl">☕</span>
                             <div>
-                                <span class="bg-green-100 text-green-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">Pos 1 (Evaluasi Titik)</span>
-                                <h4 class="font-extrabold text-gray-900 text-base">Sumatera: Kebun Kopi Gayo</h4>
+                                <span class="bg-green-100 text-green-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Pos 1 • Evaluasi Titik (g ∘ f)(a)</span>
+                                <h4 class="font-extrabold text-gray-900 text-base">Sumatera: Kebun Kopi Gayo, Aceh</h4>
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban</span>
-                            <span class="text-lg md:text-xl font-black text-green-700 math-font bg-green-50 px-3 py-1 rounded-xl border border-green-200">11 kg</span>
+                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban Resmi</span>
+                            <span class="text-lg md:text-xl font-black text-green-700 math-font bg-green-50 px-3.5 py-1 rounded-xl border border-green-300">Opsi A: 11 kg</span>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3 text-xs">
-                        <div class="bg-blue-50 p-2.5 rounded-xl border border-blue-100">
-                            <span class="font-bold text-blue-900 block mb-0.5">Mesin 1 (Kupas Kulit):</span>
-                            <span class="math-font font-bold text-blue-700 text-sm">f(x) = 2x + 10</span>
+                        <div class="bg-blue-50/80 p-3 rounded-xl border border-blue-200">
+                            <span class="font-bold text-blue-900 block mb-0.5">Mesin 1 (Pengupasan & Fermentasi):</span>
+                            <span class="math-font font-black text-blue-700 text-sm">f(x) = 2x + 10</span>
+                            <span class="text-[11px] text-blue-600 block mt-0.5">x = massa biji mentah (kg)</span>
                         </div>
-                        <div class="bg-purple-50 p-2.5 rounded-xl border border-purple-100">
-                            <span class="font-bold text-purple-900 block mb-0.5">Mesin 2 (Pemanggang):</span>
-                            <span class="math-font font-bold text-purple-700 text-sm">g(x) = x - 5</span>
+                        <div class="bg-purple-50/80 p-3 rounded-xl border border-purple-200">
+                            <span class="font-bold text-purple-900 block mb-0.5">Mesin 2 (Pemanggangan / Roasting):</span>
+                            <span class="math-font font-black text-purple-700 text-sm">g(x) = x - 5</span>
+                            <span class="text-[11px] text-purple-600 block mt-0.5">x = massa biji kering hasil mesin 1 (kg)</span>
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-3 text-xs space-y-2 border border-gray-200">
-                        <div class="font-bold text-gray-800 flex items-center gap-1">
+                    <div class="bg-gray-50 rounded-xl p-3.5 text-xs space-y-2 border border-gray-200">
+                        <div class="font-bold text-gray-900 flex items-center gap-1.5">
                             <span>📝</span> Pembahasan Langkah Demi Langkah:
                         </div>
-                        <div class="math-font text-gray-700 space-y-1 pl-2 border-l-2 border-green-500">
-                            <div>• Masalah: Masukkan 3 kg kopi mentah ke mesin 1, lalu hasilnya ke mesin 2 ➔ <span class="font-bold text-blue-800">(g ∘ f)(3) = g(f(3))</span></div>
-                            <div>• Langkah 1 (Mesin f): <span class="font-bold">f(3) = 2(3) + 10 = 6 + 10 = 16 kg</span></div>
-                            <div>• Langkah 2 (Mesin g): <span class="font-bold">g(16) = 16 - 5 = 11 kg</span></div>
-                            <div class="text-green-800 font-bold">• Kesimpulan: Hasil akhir adalah 11 kg kopi panggang.</div>
+                        <div class="math-font text-gray-700 space-y-1.5 pl-2 border-l-2 border-green-500">
+                            <div>• Masalah: Petani memasukkan 3 kg biji kopi mentah ke Mesin 1 lalu diteruskan ke Mesin 2 ➔ <span class="font-bold text-blue-800">(g ∘ f)(3) = g(f(3))</span></div>
+                            <div>• Tahap 1 (Mesin f): Masukkan x = 3 ➔ <span class="font-bold">f(3) = 2(3) + 10 = 6 + 10 = 16 kg</span> (biji kering).</div>
+                            <div>• Tahap 2 (Mesin g): Masukkan 16 kg ke g(x) ➔ <span class="font-bold">g(16) = 16 - 5 = 11 kg</span> (kopi panggang).</div>
+                            <div class="text-green-800 font-extrabold">• Kesimpulan: Hasil akhir pemrosesan adalah <b>11 kg</b> kopi panggang.</div>
                         </div>
                     </div>
 
-                    <div class="mt-2.5 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-900">
-                        <span class="font-bold">⚠️ Analisis Miskonsepsi Siswa:</span>
-                        Siswa yang menjawab <b>6 kg</b> biasanya terbalik menghitung urutan fungsi <span class="math-font">(f ∘ g)(3) = f(3 - 5) = f(-2) = 2(-2) + 10 = 6</span>. Guru dapat mengingatkan prinsip bahwa mesin pertama yang dilewati berada di posisi dalam: <span class="math-font">g(f(x))</span>.
+                    <!-- Analisis Opsi Pengecoh PG -->
+                    <div class="mt-3 bg-amber-50/90 border border-amber-200 rounded-xl p-3 text-xs text-amber-950 space-y-1.5">
+                        <div class="font-bold text-amber-900 flex items-center gap-1">
+                            <span>⚠️</span> Analisis Pilihan Ganda (PG) & Identifikasi Miskonsepsi:
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><b class="text-green-800">A. 11 kg (KUNCI BENAR):</b> Tahap 1 menghasilkan f(3) = 16 kg, lalu g(16) = 11 kg.</li>
+                            <li><b class="text-red-700">B. 6 kg (Pengecoh Urutan Terbalik):</b> Siswa menghitung (f ∘ g)(3) = f(3 - 5) = f(-2) = 2(-2) + 10 = 6 kg. Perlu ditegaskan prinsip fungsi dalam adalah mesin pertama.</li>
+                            <li><b class="text-red-700">C. 16 kg (Pengecoh Terhenti di Tahap 1):</b> Siswa baru menghitung f(3) = 16 kg, belum memasukkan ke mesin kedua g(x).</li>
+                            <li><b class="text-red-700">D. 8 kg (Pengecoh Operasi Aljabar):</b> Siswa salah menghitung operasi substitusi atau mengurangkan nilai input 3 dari 11.</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Pos 2: Jawa -->
                 <div class="bg-white border-2 border-blue-300 rounded-2xl p-5 shadow-xs">
-                    <div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
-                        <div class="flex items-center gap-2">
-                            <span class="text-2xl">🎨</span>
+                    <div class="flex flex-wrap items-center justify-between mb-3 border-b border-gray-100 pb-2.5 gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl">🎨</span>
                             <div>
-                                <span class="bg-blue-100 text-blue-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">Pos 2 (Bentuk Aljabar)</span>
-                                <h4 class="font-extrabold text-gray-900 text-base">Jawa: Kampung Batik Laweyan</h4>
+                                <span class="bg-blue-100 text-blue-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Pos 2 • Rumus Komposisi (g ∘ f)(x)</span>
+                                <h4 class="font-extrabold text-gray-900 text-base">Jawa: Kampung Batik Laweyan, Solo</h4>
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban</span>
-                            <span class="text-lg md:text-xl font-black text-blue-700 math-font bg-blue-50 px-3 py-1 rounded-xl border border-blue-200">3x + 2</span>
+                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban Resmi</span>
+                            <span class="text-lg md:text-xl font-black text-blue-700 math-font bg-blue-50 px-3.5 py-1 rounded-xl border border-blue-300">Opsi B: (g ∘ f)(x) = 3x + 2</span>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3 text-xs">
-                        <div class="bg-blue-50 p-2.5 rounded-xl border border-blue-100">
-                            <span class="font-bold text-blue-900 block mb-0.5">Tahap 1 (Pola Lilin/Malam):</span>
-                            <span class="math-font font-bold text-blue-700 text-sm">f(x) = 3x - 2</span>
+                        <div class="bg-blue-50/80 p-3 rounded-xl border border-blue-200">
+                            <span class="font-bold text-blue-900 block mb-0.5">Tahap 1 (Pemberian Pola Lilin Malam):</span>
+                            <span class="math-font font-black text-blue-700 text-sm">f(x) = 3x - 2</span>
                         </div>
-                        <div class="bg-purple-50 p-2.5 rounded-xl border border-purple-100">
-                            <span class="font-bold text-purple-900 block mb-0.5">Tahap 2 (Pewarnaan Celup):</span>
-                            <span class="math-font font-bold text-purple-700 text-sm">g(x) = x + 4</span>
+                        <div class="bg-purple-50/80 p-3 rounded-xl border border-purple-200">
+                            <span class="font-bold text-purple-900 block mb-0.5">Tahap 2 (Pewarnaan Celup Bahan Alami):</span>
+                            <span class="math-font font-black text-purple-700 text-sm">g(x) = x + 4</span>
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-3 text-xs space-y-2 border border-gray-200">
-                        <div class="font-bold text-gray-800 flex items-center gap-1">
+                    <div class="bg-gray-50 rounded-xl p-3.5 text-xs space-y-2 border border-gray-200">
+                        <div class="font-bold text-gray-900 flex items-center gap-1.5">
                             <span>📝</span> Pembahasan Langkah Demi Langkah:
                         </div>
-                        <div class="math-font text-gray-700 space-y-1 pl-2 border-l-2 border-blue-500">
-                            <div>• Masalah: Tentukan rumus mesin gabungan dari membatik sampai pewarnaan ➔ <span class="font-bold text-blue-800">(g ∘ f)(x)</span></div>
-                            <div>• Substitusi: Masukkan rumus <span class="font-bold">f(x)</span> ke dalam variabel <span class="font-bold">x</span> pada fungsi <span class="font-bold">g(x)</span>:</div>
-                            <div class="pl-3 font-semibold">(g ∘ f)(x) = g(f(x)) = (3x - 2) + 4</div>
-                            <div>• Sederhanakan suku sejenis: <span class="font-bold text-blue-800">3x + (-2 + 4) = 3x + 2</span></div>
+                        <div class="math-font text-gray-700 space-y-1.5 pl-2 border-l-2 border-blue-500">
+                            <div>• Masalah: Menentukan rumus tunggal mesin otomasi dari kain polos hingga pewarnaan ➔ <span class="font-bold text-blue-800">(g ∘ f)(x) = g(f(x))</span></div>
+                            <div>• Substitusi Aljabar: Masukkan rumus <span class="font-bold">f(x) = 3x - 2</span> ke variabel <span class="font-bold">x</span> pada fungsi <span class="font-bold">g(x)</span>:</div>
+                            <div class="pl-3 font-semibold">(g ∘ f)(x) = g(3x - 2) = (3x - 2) + 4</div>
+                            <div>• Sederhanakan suku sejenis: <span class="font-bold text-blue-800">3x + (-2 + 4) = 3x + 2</span>.</div>
                         </div>
                     </div>
 
-                    <div class="mt-2.5 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-900">
-                        <span class="font-bold">⚠️ Analisis Miskonsepsi Siswa:</span>
-                        Siswa yang menjawab <b>3x + 10</b> menghitung <span class="math-font">f(g(x)) = 3(x + 4) - 2 = 3x + 12 - 2 = 3x + 10</span>. Ini bukti nyata sifat tidak komutatif <span class="math-font">(g ∘ f)(x) ≠ (f ∘ g)(x)</span>.
+                    <!-- Analisis Opsi Pengecoh PG -->
+                    <div class="mt-3 bg-amber-50/90 border border-amber-200 rounded-xl p-3 text-xs text-amber-950 space-y-1.5">
+                        <div class="font-bold text-amber-900 flex items-center gap-1">
+                            <span>⚠️</span> Analisis Pilihan Ganda (PG) & Identifikasi Miskonsepsi:
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><b class="text-red-700">A. (g ∘ f)(x) = 3x + 10 (Pengecoh Urutan Terbalik):</b> Siswa menghitung (f ∘ g)(x) = 3(x + 4) - 2 = 3x + 12 - 2 = 3x + 10. Mengonfirmasi bahwa sifat komutatif TIDAK berlaku pada komposisi fungsi!</li>
+                            <li><b class="text-green-800">B. (g ∘ f)(x) = 3x + 2 (KUNCI BENAR):</b> Substitusi langsung g(f(x)) = (3x - 2) + 4 = 3x + 2.</li>
+                            <li><b class="text-red-700">C. (g ∘ f)(x) = 3x - 2 (Pengecoh Terhenti di f):</b> Siswa hanya menuliskan fungsi tahap pertama f(x).</li>
+                            <li><b class="text-red-700">D. (g ∘ f)(x) = 4x + 2 (Pengecoh Penjumlahan Variabel):</b> Siswa salah menjumlahkan koefisien x: 3x + x = 4x, padahal x pada g(x) digantikan seutuhnya oleh f(x).</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Pos 3: Kalimantan -->
                 <div class="bg-white border-2 border-teal-300 rounded-2xl p-5 shadow-xs">
-                    <div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
-                        <div class="flex items-center gap-2">
-                            <span class="text-2xl">🛶</span>
+                    <div class="flex flex-wrap items-center justify-between mb-3 border-b border-gray-100 pb-2.5 gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl">🛶</span>
                             <div>
-                                <span class="bg-teal-100 text-teal-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">Pos 3 (Pecahan & Barter)</span>
+                                <span class="bg-teal-100 text-teal-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Pos 3 • Fungsi Pecahan Aljabar Rasional</span>
                                 <h4 class="font-extrabold text-gray-900 text-base">Kalimantan: Pasar Terapung Lok Baintan</h4>
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban</span>
-                            <span class="text-lg md:text-xl font-black text-teal-700 math-font bg-teal-50 px-3 py-1 rounded-xl border border-teal-200">7 liter</span>
+                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban Resmi</span>
+                            <span class="text-lg md:text-xl font-black text-teal-700 math-font bg-teal-50 px-3.5 py-1 rounded-xl border border-teal-300">Opsi B: 7 liter</span>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3 text-xs">
-                        <div class="bg-blue-50 p-2.5 rounded-xl border border-blue-100">
-                            <span class="font-bold text-blue-900 block mb-0.5">Barter 1 (Jeruk ➔ Ikan):</span>
-                            <span class="math-font font-bold text-blue-700 text-sm">f(x) = (x + 2) / 3</span>
+                        <div class="bg-blue-50/80 p-3 rounded-xl border border-blue-200">
+                            <span class="font-bold text-blue-900 block mb-0.5">Barter 1 (Keranjang Jeruk ➔ Ikan Gabus):</span>
+                            <span class="math-font font-black text-blue-700 text-sm">f(x) = (x + 2) / 3</span>
                         </div>
-                        <div class="bg-purple-50 p-2.5 rounded-xl border border-purple-100">
-                            <span class="font-bold text-purple-900 block mb-0.5">Barter 2 (Ikan ➔ Beras):</span>
-                            <span class="math-font font-bold text-purple-700 text-sm">g(x) = 2x - 1</span>
+                        <div class="bg-purple-50/80 p-3 rounded-xl border border-purple-200">
+                            <span class="font-bold text-purple-900 block mb-0.5">Barter 2 (Ikan Gabus ➔ Beras Banjar):</span>
+                            <span class="math-font font-black text-purple-700 text-sm">g(x) = 2x - 1</span>
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-3 text-xs space-y-2 border border-gray-200">
-                        <div class="font-bold text-gray-800 flex items-center gap-1">
+                    <div class="bg-gray-50 rounded-xl p-3.5 text-xs space-y-2 border border-gray-200">
+                        <div class="font-bold text-gray-900 flex items-center gap-1.5">
                             <span>📝</span> Pembahasan Langkah Demi Langkah:
                         </div>
-                        <div class="math-font text-gray-700 space-y-1 pl-2 border-l-2 border-teal-500">
-                            <div>• Masalah: Bawa 10 keranjang jeruk, hitung liter beras ➔ <span class="font-bold text-teal-800">(g ∘ f)(10)</span></div>
-                            <div>• Tahap 1: Hitung ikan yang didapat: <span class="font-bold">f(10) = (10 + 2) / 3 = 12 / 3 = 4 ekor ikan</span></div>
-                            <div>• Tahap 2: Tukar 4 ikan ke beras: <span class="font-bold">g(4) = 2(4) - 1 = 8 - 1 = 7 liter beras</span></div>
+                        <div class="math-font text-gray-700 space-y-1.5 pl-2 border-l-2 border-teal-500">
+                            <div>• Masalah: Bawa modal 10 keranjang jeruk siam, hitung liter beras banjar di akhir ➔ <span class="font-bold text-teal-800">(g ∘ f)(10)</span></div>
+                            <div>• Tahap 1: Hitung jumlah ikan gabus: <span class="font-bold">f(10) = (10 + 2) / 3 = 12 / 3 = 4 ekor ikan</span>.</div>
+                            <div>• Tahap 2: Tukar 4 ekor ikan ke beras: <span class="font-bold">g(4) = 2(4) - 1 = 8 - 1 = 7 liter beras</span>.</div>
+                            <div class="text-teal-800 font-extrabold">• Kesimpulan: Pedagang memperoleh total <b>7 liter</b> beras banjar.</div>
                         </div>
                     </div>
 
-                    <div class="mt-2.5 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-900">
-                        <span class="font-bold">⚠️ Analisis Miskonsepsi Siswa:</span>
-                        Siswa yang menjawab <b>4 liter</b> terhenti di tahap pertama (hanya menghitung <span class="math-font">f(10)</span>) tanpa melanjutkan ke tahap kedua <span class="math-font">g(x)</span>.
+                    <!-- Analisis Opsi Pengecoh PG -->
+                    <div class="mt-3 bg-amber-50/90 border border-amber-200 rounded-xl p-3 text-xs text-amber-950 space-y-1.5">
+                        <div class="font-bold text-amber-900 flex items-center gap-1">
+                            <span>⚠️</span> Analisis Pilihan Ganda (PG) & Identifikasi Miskonsepsi:
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><b class="text-red-700">A. 4 liter (Pengecoh Terhenti di Tahap 1):</b> Siswa hanya menghitung f(10) = 4 ekor ikan gabus, belum ditukar ke beras pada fungsi g(x).</li>
+                            <li><b class="text-green-800">B. 7 liter (KUNCI BENAR):</b> Substitusi berantai f(10) = 4 lalu g(4) = 7 liter.</li>
+                            <li><b class="text-red-700">C. 19 liter (Pengecoh Melewatkan Fungsi Pertama):</b> Siswa langsung memasukkan 10 ke fungsi g: g(10) = 2(10) - 1 = 19 liter. Padahal modal awal adalah jeruk, bukan ikan!</li>
+                            <li><b class="text-red-700">D. 9 liter (Pengecoh Kesalahan Aljabar):</b> Siswa salah dalam perkalian 2(4) + 1 atau salah reduksi pecahan aljabar.</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Pos 4: Sulawesi -->
                 <div class="bg-white border-2 border-indigo-300 rounded-2xl p-5 shadow-xs">
-                    <div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
-                        <div class="flex items-center gap-2">
-                            <span class="text-2xl">⛵</span>
+                    <div class="flex flex-wrap items-center justify-between mb-3 border-b border-gray-100 pb-2.5 gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl">⛵</span>
                             <div>
-                                <span class="bg-indigo-100 text-indigo-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">Pos 4 (Linear Konstanta)</span>
-                                <h4 class="font-extrabold text-gray-900 text-base">Sulawesi: Galangan Kapal Pinisi</h4>
+                                <span class="bg-indigo-100 text-indigo-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Pos 4 • Aljabar Komposisi Linear & Distributif</span>
+                                <h4 class="font-extrabold text-gray-900 text-base">Sulawesi: Galangan Kapal Pinisi, Bulukumba</h4>
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban</span>
-                            <span class="text-lg md:text-xl font-black text-indigo-700 math-font bg-indigo-50 px-3 py-1 rounded-xl border border-indigo-200">5x + 20</span>
+                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban Resmi</span>
+                            <span class="text-lg md:text-xl font-black text-indigo-700 math-font bg-indigo-50 px-3.5 py-1 rounded-xl border border-indigo-300">Opsi C: (g ∘ f)(x) = 5x + 20</span>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3 text-xs">
-                        <div class="bg-blue-50 p-2.5 rounded-xl border border-blue-100">
-                            <span class="font-bold text-blue-900 block mb-0.5">Biaya Bahan Baku Kayu (Juta):</span>
-                            <span class="math-font font-bold text-blue-700 text-sm">f(x) = 5x</span>
+                        <div class="bg-blue-50/80 p-3 rounded-xl border border-blue-200">
+                            <span class="font-bold text-blue-900 block mb-0.5">Tahap 1 (Biaya Kayu Ulin & Biti Pilihan):</span>
+                            <span class="math-font font-black text-blue-700 text-sm">f(x) = 5x</span>
+                            <span class="text-[11px] text-blue-600 block mt-0.5">dalam jutaan rupiah, untuk indeks kayu x</span>
                         </div>
-                        <div class="bg-purple-50 p-2.5 rounded-xl border border-purple-100">
-                            <span class="font-bold text-purple-900 block mb-0.5">Total Biaya + Jasa (Juta):</span>
-                            <span class="math-font font-bold text-purple-700 text-sm">g(x) = x + 20</span>
+                        <div class="bg-purple-50/80 p-3 rounded-xl border border-purple-200">
+                            <span class="font-bold text-purple-900 block mb-0.5">Tahap 2 (Total Biaya + Upah Panrita Lopi):</span>
+                            <span class="math-font font-black text-purple-700 text-sm">g(x) = x + 20</span>
+                            <span class="text-[11px] text-purple-600 block mt-0.5">biaya pengerjaan tetap Rp 20 juta</span>
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-3 text-xs space-y-2 border border-gray-200">
-                        <div class="font-bold text-gray-800 flex items-center gap-1">
+                    <div class="bg-gray-50 rounded-xl p-3.5 text-xs space-y-2 border border-gray-200">
+                        <div class="font-bold text-gray-900 flex items-center gap-1.5">
                             <span>📝</span> Pembahasan Langkah Demi Langkah:
                         </div>
-                        <div class="math-font text-gray-700 space-y-1 pl-2 border-l-2 border-indigo-500">
-                            <div>• Masalah: Rumus total biaya dari spesifikasi bahan x ➔ <span class="font-bold text-indigo-800">(g ∘ f)(x)</span></div>
-                            <div>• Substitusi: <span class="font-bold">(g ∘ f)(x) = g(f(x)) = g(5x)</span></div>
-                            <div>• Masukkan ke <span class="math-font">g(x)</span>: ganti <span class="math-font">x</span> dengan <span class="math-font">5x</span> ➔ <span class="font-bold text-indigo-800">5x + 20</span></div>
+                        <div class="math-font text-gray-700 space-y-1.5 pl-2 border-l-2 border-indigo-500">
+                            <div>• Masalah: Rumus total biaya kapal dari pemilihan spesifikasi kayu x ➔ <span class="font-bold text-indigo-800">(g ∘ f)(x) = g(f(x))</span></div>
+                            <div>• Substitusi Aljabar: Masukkan rumus <span class="font-bold">f(x) = 5x</span> ke dalam variabel <span class="font-bold">x</span> pada fungsi <span class="font-bold">g(x)</span>:</div>
+                            <div class="pl-3 font-semibold">(g ∘ f)(x) = g(5x) = (5x) + 20 = 5x + 20</div>
+                            <div class="text-indigo-800 font-extrabold">• Kesimpulan: Rumus total biaya pembuatan kapal adalah <b>5x + 20</b> juta rupiah.</div>
                         </div>
                     </div>
 
-                    <div class="mt-2.5 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-900">
-                        <span class="font-bold">⚠️ Analisis Miskonsepsi Siswa:</span>
-                        Siswa yang menjawab <b>5x + 100</b> keliru mengalikan konstanta 20 dengan 5 (menghitung <span class="math-font">f(g(x)) = 5(x + 20) = 5x + 100</span>). Jelaskan bahwa konstanta jasa 20 juta hanya ditambahkan di akhir.
+                    <!-- Analisis Opsi Pengecoh PG -->
+                    <div class="mt-3 bg-amber-50/90 border border-amber-200 rounded-xl p-3 text-xs text-amber-950 space-y-1.5">
+                        <div class="font-bold text-amber-900 flex items-center gap-1">
+                            <span>⚠️</span> Analisis Pilihan Ganda (PG) & Identifikasi Miskonsepsi:
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><b class="text-red-700">A. (g ∘ f)(x) = 5x + 100 (Pengecoh Urutan Terbalik):</b> Siswa menghitung (f ∘ g)(x) = 5(x + 20) = 5x + 100 (biaya upah 20 juta keliru dikalikan 5).</li>
+                            <li><b class="text-red-700">B. (g ∘ f)(x) = 6x + 20 (Pengecoh Penjumlahan Variabel):</b> Siswa salah menjumlahkan 5x + x = 6x saat melakukan substitusi.</li>
+                            <li><b class="text-green-800">C. (g ∘ f)(x) = 5x + 20 (KUNCI BENAR):</b> Substitusi langsung g(f(x)) = (5x) + 20.</li>
+                            <li><b class="text-red-700">D. (g ∘ f)(x) = x + 25 (Pengecoh Penjumlahan Koefisien & Konstanta):</b> Siswa menjumlahkan koefisien 5 dengan konstanta 20 menjadi 25.</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Pos 5: Papua -->
                 <div class="bg-white border-2 border-rose-300 rounded-2xl p-5 shadow-xs">
-                    <div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
-                        <div class="flex items-center gap-2">
-                            <span class="text-2xl">🪸</span>
+                    <div class="flex flex-wrap items-center justify-between mb-3 border-b border-gray-100 pb-2.5 gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-3xl">🪸</span>
                             <div>
-                                <span class="bg-rose-100 text-rose-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">Pos 5 (Fungsi Kuadrat)</span>
+                                <span class="bg-rose-100 text-rose-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Pos 5 • Komposisi Fungsi Kuadrat & Linear</span>
                                 <h4 class="font-extrabold text-gray-900 text-base">Papua: Konservasi Raja Ampat</h4>
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban</span>
-                            <span class="text-lg md:text-xl font-black text-rose-700 math-font bg-rose-50 px-3 py-1 rounded-xl border border-rose-200">110 bibit</span>
+                            <span class="text-[10px] text-gray-500 block uppercase font-bold">Kunci Jawaban Resmi</span>
+                            <span class="text-lg md:text-xl font-black text-rose-700 math-font bg-rose-50 px-3.5 py-1 rounded-xl border border-rose-300">Opsi A: 110 bibit</span>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3 text-xs">
-                        <div class="bg-blue-50 p-2.5 rounded-xl border border-blue-100">
-                            <span class="font-bold text-blue-900 block mb-0.5">Luas m² ➔ Grid Besi:</span>
-                            <span class="math-font font-bold text-blue-700 text-sm">f(x) = x²</span>
+                        <div class="bg-blue-50/80 p-3 rounded-xl border border-blue-200">
+                            <span class="font-bold text-blue-900 block mb-0.5">Tahap 1 (Luas Area Modul Persegi):</span>
+                            <span class="math-font font-black text-blue-700 text-sm">f(x) = x²</span>
+                            <span class="text-[11px] text-blue-600 block mt-0.5">luas area m² untuk panjang sisi x meter</span>
                         </div>
-                        <div class="bg-purple-50 p-2.5 rounded-xl border border-purple-100">
-                            <span class="font-bold text-purple-900 block mb-0.5">Grid Besi ➔ Bibit Karang:</span>
-                            <span class="math-font font-bold text-purple-700 text-sm">g(x) = 4x + 10</span>
+                        <div class="bg-purple-50/80 p-3 rounded-xl border border-purple-200">
+                            <span class="font-bold text-purple-900 block mb-0.5">Tahap 2 (Kebutuhan Bibit Karang Bercabang):</span>
+                            <span class="math-font font-black text-purple-700 text-sm">g(x) = 4x + 10</span>
+                            <span class="text-[11px] text-purple-600 block mt-0.5">jumlah bibit untuk luas area x m²</span>
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-3 text-xs space-y-2 border border-gray-200">
-                        <div class="font-bold text-gray-800 flex items-center gap-1">
+                    <div class="bg-gray-50 rounded-xl p-3.5 text-xs space-y-2 border border-gray-200">
+                        <div class="font-bold text-gray-900 flex items-center gap-1.5">
                             <span>📝</span> Pembahasan Langkah Demi Langkah:
                         </div>
-                        <div class="math-font text-gray-700 space-y-1 pl-2 border-l-2 border-rose-500">
-                            <div>• Masalah: Luas area 5 m², hitung total bibit karang ➔ <span class="font-bold text-rose-800">(g ∘ f)(5)</span></div>
-                            <div>• Tahap 1 (Fungsi Kuadrat): <span class="font-bold">f(5) = 5² = 25 grid besi</span></div>
-                            <div>• Tahap 2 (Fungsi Linear): <span class="font-bold">g(25) = 4(25) + 10 = 100 + 10 = 110 bibit</span></div>
+                        <div class="math-font text-gray-700 space-y-1.5 pl-2 border-l-2 border-rose-500">
+                            <div>• Masalah: Sisi modul kerangka bujur sangkar x = 5 meter, hitung total bibit karang ➔ <span class="font-bold text-rose-800">(g ∘ f)(5) = g(f(5))</span></div>
+                            <div>• Tahap 1 (Fungsi Kuadrat Luas Persegi): <span class="font-bold">f(5) = 5² = 25 m²</span>.</div>
+                            <div>• Tahap 2 (Fungsi Linear Bibit per Luas): <span class="font-bold">g(25) = 4(25) + 10 = 100 + 10 = 110 unit bibit</span>.</div>
+                            <div class="text-rose-800 font-extrabold">• Kesimpulan: Total bibit karang yang harus disiapkan adalah <b>110 bibit</b>.</div>
                         </div>
                     </div>
 
-                    <div class="mt-2.5 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-900">
-                        <span class="font-bold">⚠️ Analisis Miskonsepsi Siswa:</span>
-                        Siswa yang menjawab <b>900 bibit</b> menghitung <span class="math-font">f(g(5)) = (4(5) + 10)² = (20 + 10)² = 30² = 900</span> (pengkuadratan dilakukan di tahap terakhir).
+                    <!-- Analisis Opsi Pengecoh PG -->
+                    <div class="mt-3 bg-amber-50/90 border border-amber-200 rounded-xl p-3 text-xs text-amber-950 space-y-1.5">
+                        <div class="font-bold text-amber-900 flex items-center gap-1">
+                            <span>⚠️</span> Analisis Pilihan Ganda (PG) & Identifikasi Miskonsepsi:
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><b class="text-green-800">A. 110 bibit (KUNCI BENAR):</b> f(5) = 25 m², lalu g(25) = 4(25) + 10 = 110 bibit.</li>
+                            <li><b class="text-red-700">B. 30 bibit (Pengecoh Melewatkan Kuadrat Luas):</b> Siswa langsung memasukkan panjang sisi 5 ke fungsi g: g(5) = 4(5) + 10 = 30. Padahal g(x) menerima luas area m², bukan panjang sisi.</li>
+                            <li><b class="text-red-700">C. 900 bibit (Pengecoh Urutan Terbalik):</b> Siswa menghitung (f ∘ g)(5) = (4(5) + 10)² = (30)² = 900 bibit (pengkuadratan keliru dilakukan di akhir).</li>
+                            <li><b class="text-red-700">D. 100 bibit (Pengecoh Lupa Konstanta):</b> Siswa hanya menghitung 4 × 25 = 100 bibit, lupa menambahkan konstanta cadangan +10 pada g(x).</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -819,81 +874,196 @@
     </div>
 
     <script>
-        // Game Data Configuration
+        // Game Data Configuration: 5 Pos Petualangan Nusantara Materi Komposisi Fungsi
         const levels = [
             {
                 island: "Sumatera",
-                location: "Kebun Kopi Gayo",
+                location: "Kebun Kopi Gayo, Aceh",
                 icon: "☕",
-                context: "Proses pengolahan biji kopi Gayo melalui 2 mesin. Mesin pengupas kulit dimodelkan dengan fungsi <b>f(x)</b> (dalam kg), dan mesin pemanggang (roasting) dimodelkan dengan fungsi <b>g(x)</b>.",
+                subtopic: "Evaluasi Titik Komposisi Linear (g ∘ f)(a)",
+                context: "Di perkebunan kopi Gayo, biji kopi basah diproses melalui dua mesin berurutan: <b>Mesin 1</b> mengupas kulit dan memfermentasi menurut fungsi <b>f(x)</b> (dalam kg), kemudian <b>Mesin 2</b> memanggang (roasting) biji kering menurut fungsi <b>g(x)</b> (dalam kg).",
+                fTitle: "Mesin 1 (Pengupas & Fermentasi)",
                 fText: "f(x) = 2x + 10",
+                gTitle: "Mesin 2 (Pemanggang / Roasting)",
                 gText: "g(x) = x - 5",
-                question: "Jika petani memasukkan 3 kg biji kopi mentah ke mesin pengupas, lalu hasilnya langsung dimasukkan ke mesin pemanggang, berapa kg kopi panggang yang dihasilkan? Hitung nilai (g ∘ f)(3)!",
+                question: "Jika petani memasukkan x = 3 kg biji kopi mentah ke Mesin 1, lalu seluruh hasilnya langsung dialirkan ke Mesin 2, berapakah massa kopi panggang yang dihasilkan? Hitung nilai fungsi komposisi (g ∘ f)(3)!",
                 options: [
-                    { text: "11 kg", isCorrect: true, explanation: "f(3) = 2(3)+10 = 16. Lalu g(16) = 16 - 5 = 11." },
-                    { text: "6 kg", isCorrect: false },
-                    { text: "16 kg", isCorrect: false },
-                    { text: "8 kg", isCorrect: false }
+                    {
+                        text: "11 kg",
+                        isCorrect: true,
+                        explanation: "Langkah 1 (Mesin 1): f(3) = 2(3) + 10 = 6 + 10 = 16 kg. Langkah 2 (Mesin 2): Masukkan hasil 16 kg ke g(x) ➔ g(16) = 16 - 5 = 11 kg. Maka (g ∘ f)(3) = g(f(3)) = 11 kg kopi panggang siap kemas.",
+                        misconception: ""
+                    },
+                    {
+                        text: "6 kg",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Terbalik urutan fungsi! Anda menghitung (f ∘ g)(3) = f(g(3)) = f(3 - 5) = f(-2) = 2(-2) + 10 = 6 kg. Karena kopi mentah masuk ke mesin f terlebih dahulu lalu ke mesin g, maka urutan yang tepat adalah (g ∘ f)(3) = g(f(3))."
+                    },
+                    {
+                        text: "16 kg",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Perhitungan Anda baru selesai di Tahap 1! Nilai 16 kg adalah hasil f(3) dari mesin pengupas kulit, belum diproses oleh mesin pemanggang g(x) = x - 5."
+                    },
+                    {
+                        text: "8 kg",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Terjadi kekeliruan perhitungan aljabar. Perhatikan bahwa f(3) = 16, lalu hasil 16 dimasukkan ke g(x) menghasilkan g(16) = 16 - 5 = 11 kg."
+                    }
                 ]
             },
             {
                 island: "Jawa",
-                location: "Kampung Batik Laweyan",
+                location: "Kampung Batik Laweyan, Solo",
                 icon: "🎨",
-                context: "Seorang pengrajin batik membuat pola dengan malam (lilin) yang rumusnya <b>f(x)</b>, kemudian dilanjutkan dengan tahap pewarnaan celup yang rumusnya <b>g(x)</b>.",
+                subtopic: "Rumus Aljabar (g ∘ f)(x) & Sifat Tidak Komutatif",
+                context: "Seorang juragan batik merancang lini mekanik otomatis dengan 2 tahapan berurutan: <b>Tahap 1</b> membuat motif lilin malam pada kain mori sepanjang x meter menurut <b>f(x)</b>, dan <b>Tahap 2</b> melakukan pewarnaan celup alami menurut <b>g(x)</b>.",
+                fTitle: "Tahap 1 (Pola Lilin Malam)",
                 fText: "f(x) = 3x - 2",
+                gTitle: "Tahap 2 (Pewarnaan Celup)",
                 gText: "g(x) = x + 4",
-                question: "Bantulah pengrajin menemukan rumus mesin otomatis yang menggabungkan kedua proses sekaligus dari membatik hingga mewarnai. Tentukan rumus fungsi komposisi (g ∘ f)(x)!",
+                question: "Juragan batik ingin menyatukan kedua proses menjadi satu rumus otomatis dari kain polos mori langsung ke kain batik jadi. Tentukan rumus fungsi komposisi (g ∘ f)(x)!",
                 options: [
-                    { text: "3x + 10", isCorrect: false },
-                    { text: "3x + 2", isCorrect: true, explanation: "g(f(x)) = g(3x - 2) = (3x - 2) + 4 = 3x + 2." },
-                    { text: "3x - 2", isCorrect: false },
-                    { text: "4x + 2", isCorrect: false }
+                    {
+                        text: "(g ∘ f)(x) = 3x + 10",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Terbalik urutan komposisi fungsi! Rumus 3x + 10 adalah hasil dari (f ∘ g)(x) = f(g(x)) = 3(x + 4) - 2 = 3x + 12 - 2 = 3x + 10. Ingat sifat penting komposisi fungsi: secara umum (g ∘ f)(x) ≠ (f ∘ g)(x) (tidak komutatif)."
+                    },
+                    {
+                        text: "(g ∘ f)(x) = 3x + 2",
+                        isCorrect: true,
+                        explanation: "Gunakan definisi komposisi fungsi: (g ∘ f)(x) = g(f(x)). Masukkan rumus f(x) = 3x - 2 ke dalam variabel x pada fungsi g(x): g(3x - 2) = (3x - 2) + 4 = 3x + (-2 + 4) = 3x + 2.",
+                        misconception: ""
+                    },
+                    {
+                        text: "(g ∘ f)(x) = 3x - 2",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Ini baru rumus fungsi tahap pertama f(x) (pola malam), belum dikomposisikan dengan fungsi pewarnaan g(x) = x + 4."
+                    },
+                    {
+                        text: "(g ∘ f)(x) = 4x + 2",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Keliru menjumlahkan suku variabel x! Anda menjumlahkan 3x + x = 4x, padahal operasi komposisi g(f(x)) adalah mensubstitusikan seluruh blok (3x - 2) menggantikan variabel x pada g."
+                    }
                 ]
             },
             {
                 island: "Kalimantan",
-                location: "Pasar Terapung Lok Baintan",
+                location: "Pasar Terapung Lok Baintan, Banjarmasin",
                 icon: "🛶",
-                context: "Di pasar terapung berlaku sistem barter bertingkat. Fungsi <b>f(x)</b> mengubah jumlah keranjang Jeruk menjadi Ikan Gabus. Fungsi <b>g(x)</b> mengubah jumlah Ikan Gabus menjadi Liter Beras.",
+                subtopic: "Komposisi Pecahan Aljabar Rasional (g ∘ f)(a)",
+                context: "Di pasar terapung sungai Martapura, berlaku kesepakatan rasio barter bertingkat antar jukung: <b>Tahap 1</b> menukar x keranjang buah Jeruk Siam menjadi Ikan Gabus segar menurut <b>f(x)</b>, lalu <b>Tahap 2</b> menukar ikan gabus menjadi beras Banjar menurut <b>g(x)</b> (dalam liter beras).",
+                fTitle: "Barter 1 (Jeruk ➔ Ikan Gabus)",
                 fText: "f(x) = (x + 2) / 3",
+                gTitle: "Barter 2 (Ikan Gabus ➔ Beras Banjar)",
                 gText: "g(x) = 2x - 1",
-                question: "Berapa liter beras yang didapat pedagang jika ia memulai barter dengan membawa 10 keranjang Jeruk? Hitung nilai (g ∘ f)(10)!",
+                question: "Seorang pedagang membawa modal x = 10 keranjang jeruk siam. Jika seluruh jeruk ditukar ke ikan lalu seluruh ikan langsung ditukar ke beras banjar, berapa liter beras yang ia peroleh? Hitung nilai (g ∘ f)(10)!",
                 options: [
-                    { text: "4 liter", isCorrect: false },
-                    { text: "7 liter", isCorrect: true, explanation: "f(10) = (10+2)/3 = 4 ikan. g(4) = 2(4)-1 = 7 liter beras." },
-                    { text: "19 liter", isCorrect: false },
-                    { text: "10 liter", isCorrect: false }
+                    {
+                        text: "4 liter",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Perhitungan Anda terhenti di Tahap 1! Angka 4 adalah hasil f(10) = (10 + 2)/3 = 12/3 = 4 ekor ikan gabus, belum dikonversi ke beras pada fungsi g(x)."
+                    },
+                    {
+                        text: "7 liter",
+                        isCorrect: true,
+                        explanation: "Tahap 1 (Konversi Jeruk ke Ikan): f(10) = (10 + 2) / 3 = 12 / 3 = 4 ekor ikan gabus. Tahap 2 (Konversi Ikan ke Beras): g(4) = 2(4) - 1 = 8 - 1 = 7 liter beras. Maka (g ∘ f)(10) = 7 liter beras.",
+                        misconception: ""
+                    },
+                    {
+                        text: "19 liter",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Anda langsung memasukkan modal 10 ke fungsi kedua: g(10) = 2(10) - 1 = 19. Pedagang membawa 10 keranjang jeruk, bukan 10 ekor ikan! Jeruk harus melewati fungsi f(x) terlebih dahulu."
+                    },
+                    {
+                        text: "9 liter",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Kesalahan perhitungan aljabar pecahan atau kekeliruan substitusi saat menghitung g(4) = 2(4) - 1 = 7."
+                    }
                 ]
             },
             {
                 island: "Sulawesi",
-                location: "Galangan Kapal Pinisi",
+                location: "Galangan Kapal Pinisi, Bulukumba",
                 icon: "⛵",
-                context: "Pembuatan kapal Pinisi membutuhkan kayu khusus. Fungsi <b>f(x)</b> menghitung biaya bahan baku (dalam juta rupiah). Fungsi <b>g(x)</b> menghitung total biaya termasuk jasa pembuat (ditambah 20 juta).",
+                subtopic: "Rumus Aljabar Linear Berkoefisien (g ∘ f)(x)",
+                context: "Pembuatan kapal pinisi oleh Panrita Lopi memiliki dua tahapan penghitungan biaya (dalam jutaan rupiah): <b>Tahap 1</b> biaya bahan baku kayu ulin & biti untuk indeks kayu x dimodelkan dengan <b>f(x)</b>, dan <b>Tahap 2</b> total biaya termasuk upah pengerjaan dan perlengkapan layar dimodelkan dengan penambahan biaya <b>g(x)</b>.",
+                fTitle: "Biaya Bahan Kayu (Juta Rp)",
                 fText: "f(x) = 5x",
+                gTitle: "Total Biaya + Upah Jasa (Juta Rp)",
                 gText: "g(x) = x + 20",
-                question: "Pelanggan ingin memesan kapal dengan spesifikasi bahan x. Ia ingin tahu rumus total biaya akhir. Tentukan (g ∘ f)(x)!",
+                question: "Pemesan kapal ingin mengetahui rumus tunggal total biaya akhir pembuatan kapal Pinisi berdasarkan indeks kayu x. Tentukan rumus fungsi komposisi (g ∘ f)(x)!",
                 options: [
-                    { text: "5x + 100", isCorrect: false },
-                    { text: "6x + 20", isCorrect: false },
-                    { text: "5x + 20", isCorrect: true, explanation: "g(f(x)) = g(5x) = 5x + 20." },
-                    { text: "x + 25", isCorrect: false }
+                    {
+                        text: "(g ∘ f)(x) = 5x + 100",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Terbalik urutan fungsi komposisi! Rumus 5x + 100 didapat dari (f ∘ g)(x) = f(x + 20) = 5(x + 20) = 5x + 100 (biaya upah 20 juta keliru dikalikan 5). Padahal yang diminta adalah (g ∘ f)(x)."
+                    },
+                    {
+                        text: "(g ∘ f)(x) = 6x + 20",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Kesalahan aljabar substitusi! Anda keliru menjumlahkan variabel 5x + x = 6x. Pada g(f(x)), variabel x pada fungsi g langsung digantikan seutuhnya oleh (5x), menghasilkan 5x + 20."
+                    },
+                    {
+                        text: "(g ∘ f)(x) = 5x + 20",
+                        isCorrect: true,
+                        explanation: "Gunakan definisi fungsi komposisi: (g ∘ f)(x) = g(f(x)). Masukkan rumus f(x) = 5x ke dalam variabel x pada fungsi g(x): g(5x) = (5x) + 20 = 5x + 20 (juta rupiah).",
+                        misconception: ""
+                    },
+                    {
+                        text: "(g ∘ f)(x) = x + 25",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Kekeliruan pengelompokan suku aljabar! Anda menjumlahkan koefisien 5 dengan konstanta 20 menjadi 25. Suku bervariabel 5x tidak dapat dijumlahkan langsung dengan konstanta 20."
+                    }
                 ]
             },
             {
                 island: "Papua",
-                location: "Konservasi Raja Ampat",
+                location: "Konservasi Terumbu Karang Raja Ampat",
                 icon: "🪸",
-                context: "Program tanam terumbu karang. Fungsi <b>f(x)</b> memetakan luas area (m²) ke jumlah grid besi. Fungsi <b>g(x)</b> memetakan jumlah grid besi ke total bibit karang yang dibutuhkan.",
+                subtopic: "Komposisi Fungsi Kuadrat & Linear (g ∘ f)(a)",
+                context: "Program rehabilitasi terumbu karang buatan (biorock) di Misool Raja Ampat: <b>Tahap 1</b> pemasangan kerangka besi persegi dengan panjang sisi x meter mencakup luas area menurut fungsi kuadrat <b>f(x)</b> (dalam m²), lalu <b>Tahap 2</b> setiap luas area membutuhkan bibit karang bercabang menurut fungsi <b>g(x)</b> (dalam bibit).",
+                fTitle: "Tahap 1 (Luas Persegi m²)",
                 fText: "f(x) = x²",
+                gTitle: "Tahap 2 (Kebutuhan Bibit Karang)",
                 gText: "g(x) = 4x + 10",
-                question: "Jika relawan akan menanam di area seluas 5 m², berapa total bibit karang yang harus disiapkan? Hitung (g ∘ f)(5)!",
+                question: "Jika tim konservasi menanam pada modul kerangka bujur sangkar dengan panjang sisi x = 5 meter, berapakah total bibit karang yang harus disiapkan? Hitung nilai (g ∘ f)(5)!",
                 options: [
-                    { text: "110 bibit", isCorrect: true, explanation: "f(5) = 5² = 25. g(25) = 4(25) + 10 = 100 + 10 = 110." },
-                    { text: "30 bibit", isCorrect: false },
-                    { text: "900 bibit", isCorrect: false },
-                    { text: "100 bibit", isCorrect: false }
+                    {
+                        text: "110 bibit",
+                        isCorrect: true,
+                        explanation: "Tahap 1 (Luas Area Persegi): f(5) = 5² = 25 m². Tahap 2 (Kebutuhan Bibit): Masukkan 25 m² ke g(x) ➔ g(25) = 4(25) + 10 = 100 + 10 = 110 unit bibit karang. Maka (g ∘ f)(5) = 110 bibit.",
+                        misconception: ""
+                    },
+                    {
+                        text: "30 bibit",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Anda langsung memasukkan sisi 5 meter ke fungsi kedua: g(5) = 4(5) + 10 = 30 bibit. Ini keliru karena g(x) membutuhkan masukan berupa luas area (m²), bukan panjang sisi, sehingga harus dikuadratkan terlebih dahulu oleh f(x) = x²."
+                    },
+                    {
+                        text: "900 bibit",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Terbalik urutan fungsi! Anda menghitung (f ∘ g)(5) = f(g(5)) = (4(5) + 10)² = (30)² = 900 bibit. Pengkuadratan luas dilakukan di tahap awal oleh fungsi f(x), bukan di tahap akhir."
+                    },
+                    {
+                        text: "100 bibit",
+                        isCorrect: false,
+                        explanation: "",
+                        misconception: "Perhitungan Anda hampir lengkap, namun lupa menambahkan konstanta +10 pada fungsi g(x). Anda hanya menghitung 4 × 25 = 100 bibit tanpa menambahkan 10 unit bibit cadangan."
+                    }
                 ]
             }
         ];
@@ -1262,6 +1432,15 @@
             document.getElementById('level-subtitle').innerText = levelData.location;
             document.getElementById('level-icon').innerText = levelData.icon;
             document.getElementById('pos-counter-badge').innerText = `Pos ${currentLevel + 1} / ${levels.length}`;
+
+            const topicBadge = document.getElementById('level-topic-badge');
+            if (topicBadge) topicBadge.innerText = levelData.subtopic || 'Komposisi Fungsi';
+
+            const funcFTitle = document.getElementById('func-f-title');
+            if (funcFTitle) funcFTitle.innerText = levelData.fTitle || 'Tahap 1';
+            const funcGTitle = document.getElementById('func-g-title');
+            if (funcGTitle) funcGTitle.innerText = levelData.gTitle || 'Tahap 2';
+
             document.getElementById('problem-context').innerHTML = levelData.context;
             document.getElementById('func-f').innerText = levelData.fText;
             document.getElementById('func-g').innerText = levelData.gText;
@@ -1285,12 +1464,12 @@
                 const btn = document.createElement('button');
                 btn.type = 'button';
                 btn.id = `btn-opt-${optIdx}`;
-                btn.className = 'w-full text-left p-3.5 rounded-xl border border-gray-200 hover:border-green-400 bg-white hover:bg-green-50/50 shadow-2xs transition-all cursor-pointer flex items-center gap-3 btn-hover';
+                btn.className = 'w-full text-left p-3.5 rounded-xl border border-gray-200 hover:border-green-500 bg-white hover:bg-green-50/60 shadow-2xs transition-all cursor-pointer flex items-center gap-3.5 btn-hover';
                 btn.innerHTML = `
-                    <span class="w-7 h-7 rounded-lg bg-gray-100 text-gray-700 font-bold text-xs flex items-center justify-center shrink-0 border border-gray-300">
+                    <span class="w-8 h-8 rounded-lg bg-gray-100 text-gray-700 font-extrabold text-sm flex items-center justify-center shrink-0 border border-gray-300">
                         ${letters[optIdx]}
                     </span>
-                    <span class="math-font font-bold text-sm sm:text-base text-gray-800">
+                    <span class="math-font font-bold text-sm sm:text-base text-gray-900 leading-snug">
                         ${escapeHtml(opt.text)}
                     </span>
                 `;
@@ -1304,13 +1483,16 @@
             const buttons = document.querySelectorAll('#options-container button');
             buttons.forEach(b => {
                 b.disabled = true;
-                b.classList.remove('btn-hover', 'hover:bg-green-50/50', 'hover:border-green-400');
+                b.classList.remove('btn-hover', 'hover:bg-green-50/60', 'hover:border-green-500');
             });
 
+            const letters = ['A', 'B', 'C', 'D'];
+            const levelData = levels[currentLevel];
             const isCorrect = Boolean(option.isCorrect);
+
             answersHistory.push({
                 pos: currentLevel + 1,
-                island: levels[currentLevel].island,
+                island: levelData.island,
                 isCorrect: isCorrect,
                 chosenText: option.text
             });
@@ -1318,9 +1500,10 @@
             const feedbackEl = document.getElementById('feedback-message');
             feedbackEl.classList.remove('hidden');
 
-            const levelData = levels[currentLevel];
             const correctOptIdx = levelData.options.findIndex(o => o.isCorrect);
             const correctOption = levelData.options[correctOptIdx];
+            const chosenLetter = letters[optionIdx];
+            const correctLetter = letters[correctOptIdx];
 
             const isLast = (currentLevel === levels.length - 1);
             const nextButtonLabel = isLast ? "Lihat Hasil Akhir Evaluasi 🏆" : `Lanjut ke Pos ${currentLevel + 2}: ${levels[currentLevel + 1].island} ➡️`;
@@ -1330,43 +1513,56 @@
                 score += pointsPerLevel;
                 updateScore();
 
-                btnElement.className = 'w-full text-left p-3.5 rounded-xl border-2 border-green-500 bg-green-50 shadow-sm flex items-center gap-3';
+                btnElement.className = 'w-full text-left p-3.5 rounded-xl border-2 border-green-500 bg-green-50 shadow-sm flex items-center gap-3.5';
                 const badge = btnElement.querySelector('span');
-                if (badge) badge.className = 'w-7 h-7 rounded-lg bg-green-600 text-white font-black text-xs flex items-center justify-center shrink-0';
+                if (badge) badge.className = 'w-8 h-8 rounded-lg bg-green-600 text-white font-black text-sm flex items-center justify-center shrink-0';
 
-                feedbackEl.className = "mt-4 p-4 rounded-2xl bg-green-50 border-2 border-green-200 text-green-950 block shadow-xs";
+                feedbackEl.className = "mt-4 p-4.5 rounded-2xl bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 text-green-950 block shadow-xs";
                 feedbackEl.innerHTML = `
-                    <div class="font-extrabold text-sm sm:text-base mb-1 text-green-800 flex items-center gap-1.5">
-                        <span>🎉</span> Tepat Sekali! (+20 Poin)
+                    <div class="font-extrabold text-sm sm:text-base mb-2 text-green-900 flex items-center gap-2">
+                        <span class="text-xl">🎉</span>
+                        <span>Jawaban Anda Tepat Sekali! Pilihan ${chosenLetter} (+20 Poin)</span>
                     </div>
-                    <div class="text-xs sm:text-sm leading-relaxed text-gray-700 font-sans mb-3.5">
-                        <b>Penjelasan Matematis:</b> ${option.explanation || 'Perhitungan substitusi fungsi komposisi Anda tepat!'}
+                    <div class="p-3.5 bg-white/95 rounded-xl border border-green-200 text-xs sm:text-sm text-gray-800 leading-relaxed font-sans mb-4 shadow-2xs">
+                        <div class="font-bold text-green-900 mb-1 flex items-center gap-1.5">
+                            <span>📝</span> Langkah Penyelesaian Matematis:
+                        </div>
+                        <div>${option.explanation || 'Substitusi berantai fungsi komposisi Anda tepat!'}</div>
                     </div>
                     <button type="button" onclick="goToNextLevel()" class="w-full ${nextButtonColor} text-white font-bold py-3 px-5 rounded-xl btn-hover shadow-md text-sm md:text-base flex items-center justify-center gap-2 cursor-pointer transition">
                         <span>${nextButtonLabel}</span>
                     </button>
                 `;
             } else {
-                btnElement.className = 'w-full text-left p-3.5 rounded-xl border-2 border-red-400 bg-red-50 shadow-sm flex items-center gap-3 opacity-90';
+                btnElement.className = 'w-full text-left p-3.5 rounded-xl border-2 border-red-400 bg-red-50 shadow-sm flex items-center gap-3.5 opacity-90';
                 const badge = btnElement.querySelector('span');
-                if (badge) badge.className = 'w-7 h-7 rounded-lg bg-red-600 text-white font-black text-xs flex items-center justify-center shrink-0';
+                if (badge) badge.className = 'w-8 h-8 rounded-lg bg-red-600 text-white font-black text-sm flex items-center justify-center shrink-0';
 
                 // Highlight correct button
                 const correctBtn = document.getElementById(`btn-opt-${correctOptIdx}`);
                 if (correctBtn) {
-                    correctBtn.className = 'w-full text-left p-3.5 rounded-xl border-2 border-green-500 bg-green-50 shadow-sm flex items-center gap-3';
+                    correctBtn.className = 'w-full text-left p-3.5 rounded-xl border-2 border-green-500 bg-green-50 shadow-sm flex items-center gap-3.5';
                     const correctBadge = correctBtn.querySelector('span');
-                    if (correctBadge) correctBadge.className = 'w-7 h-7 rounded-lg bg-green-600 text-white font-black text-xs flex items-center justify-center shrink-0';
+                    if (correctBadge) correctBadge.className = 'w-8 h-8 rounded-lg bg-green-600 text-white font-black text-sm flex items-center justify-center shrink-0';
                 }
 
-                feedbackEl.className = "mt-4 p-4 rounded-2xl bg-red-50 border-2 border-red-200 text-red-950 block shadow-xs";
+                feedbackEl.className = "mt-4 p-4.5 rounded-2xl bg-red-50/90 border-2 border-red-300 text-red-950 block shadow-xs";
                 feedbackEl.innerHTML = `
-                    <div class="font-extrabold text-sm sm:text-base mb-1 text-red-800 flex items-center gap-1.5">
-                        <span>💡</span> Jawaban Anda: ${escapeHtml(option.text)}
+                    <div class="font-extrabold text-sm sm:text-base mb-2 text-red-900 flex items-center gap-2">
+                        <span class="text-xl">💡</span>
+                        <span>Analisis Jawaban: Anda Memilih Opsi ${chosenLetter} (${escapeHtml(option.text)})</span>
                     </div>
-                    <div class="text-xs sm:text-sm leading-relaxed text-gray-700 font-sans mb-3.5">
-                        Kunci yang tepat adalah <b>${escapeHtml(correctOption.text)}</b>.<br>
-                        <b>Langkah:</b> ${correctOption.explanation || 'Gunakan substitusi bertahap ke dalam fungsi luar.'}
+                    <div class="mb-3 p-3 bg-red-100/90 rounded-xl border border-red-200 text-red-950 text-xs leading-relaxed font-sans">
+                        <span class="font-bold text-red-900 block mb-0.5">⚠️ Miskonsepsi pada Pilihan Ini:</span>
+                        ${option.misconception || 'Jawaban Anda belum tepat. Perhatikan dengan teliti urutan fungsi luar dan fungsi dalam.'}
+                    </div>
+                    <div class="p-3.5 bg-white/95 rounded-xl border border-green-200 text-xs sm:text-sm text-gray-800 leading-relaxed font-sans mb-4 shadow-2xs">
+                        <div class="font-bold text-green-900 mb-1 flex items-center gap-1.5">
+                            <span>✅</span> Kunci Jawaban yang Tepat: <span class="math-font font-black text-green-700">Opsi ${correctLetter} (${escapeHtml(correctOption.text)})</span>
+                        </div>
+                        <div class="text-xs text-gray-700 pt-1.5 border-t border-gray-100 mt-1">
+                            <b>Langkah Tepat:</b> ${correctOption.explanation || 'Gunakan substitusi bertahap ke dalam fungsi luar.'}
+                        </div>
                     </div>
                     <button type="button" onclick="goToNextLevel()" class="w-full ${nextButtonColor} text-white font-bold py-3 px-5 rounded-xl btn-hover shadow-md text-sm md:text-base flex items-center justify-center gap-2 cursor-pointer transition">
                         <span>${nextButtonLabel}</span>

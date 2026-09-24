@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Nusantara: Misteri Komposisi Fungsi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f0fdf4; /* Light green background */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2322c55e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: #1f2937;
+        }
+        .math-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-hover {
+            transition: all 0.2s ease;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .btn-hover:active {
+            transform: translateY(0);
+        }
+        .hidden-scene {
+            display: none !important;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Floating animation for decorative elements */
+        .float-anim {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div id="app" class="w-full max-w-3xl glass-card rounded-3xl overflow-hidden relative">
+        
+        <!-- Header -->
+        <header class="bg-green-600 text-white p-4 text-center relative">
+            <button id="btn-back-home" onclick="goToHome()" class="hidden absolute left-4 top-1/2 -translate-y-1/2 bg-green-700 hover:bg-green-800 text-white text-xs md:text-sm px-3 py-1.5 rounded-lg flex items-center gap-1 transition cursor-pointer">
+                🏠 <span class="hidden sm:inline">Menu Utama</span>
+            </button>
+            <h1 class="text-2xl md:text-3xl font-extrabold tracking-wide text-green-50">🗺️ PETUALANGAN NUSANTARA</h1>
+            <p class="text-green-200 text-sm md:text-base font-semibold mt-1">Misi: Menaklukkan Komposisi Fungsi</p>
+        </header>
+
+        <!-- Scene 0: Role Selection (Menu Utama) -->
+        <div id="scene-role-selection" class="p-6 md:p-8 flex flex-col items-center fade-in text-center">
+            <span class="text-5xl mb-3 float-anim">🇮🇩</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-2">Selamat Datang di Petualangan Nusantara!</h2>
+            <p class="text-gray-600 mb-8 max-w-md">Silakan pilih peran Anda untuk memulai pengalaman belajar interaktif Komposisi Fungsi Matematika Kelas 11.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-lg">
+                <!-- Option: Saya Siswa -->
+                <button onclick="selectRole('siswa')" class="bg-white hover:bg-green-50 border-2 border-green-500 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all flex flex-col items-center group text-center cursor-pointer btn-hover">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                        🎒
+                    </div>
+                    <h3 class="text-xl font-bold text-green-800 mb-1">Saya Siswa</h3>
+                    <p class="text-xs text-gray-500">Mulai pemantik kontekstual & petualangan interaktif komposisi fungsi di 5 pulau!</p>
+                </button>
+
+                <!-- Option: Saya Guru -->
+                <button onclick="selectRole('guru')" class="bg-white hover:bg-blue-50 border-2 border-blue-500 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all flex flex-col items-center group text-center cursor-pointer btn-hover">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                        👨‍🏫
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Saya Guru</h3>
+                    <p class="text-xs text-gray-500">Akses Modul Ajar Kurikulum Merdeka, Kunci Jawaban + Pembahasan, & LKPD.</p>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-pemantik" class="hidden-scene p-6 md:p-8 flex flex-col items-center fade-in">
+            
+            <button onclick="startGame()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full btn-hover shadow-lg text-lg flex items-center gap-2">
+                <span>Mulai Petualangan</span>
+                <span>🚀</span>
+            </button>
+        </div>
+
+        <div id="scene-game" class="hidden-scene p-6 md:p-8 flex flex-col fade-in">
+            <!-- Progress Bar -->
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-6 overflow-hidden">
+                <div id="progress-bar" class="bg-green-500 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+
+            <!-- Header Level -->
+            <div class="flex justify-between items-center mb-4 border-b border-gray-200 pb-3">
+                <div class="flex items-center gap-2">
+                    <span id="level-icon" class="text-3xl float-anim">🏝️</span>
+                    <div>
+                        <h2 id="level-title" class="text-xl font-bold text-gray-800">Pos 1: Sumatera</h2>
+                        <p id="level-subtitle" class="text-sm text-gray-500 font-semibold">Kebun Kopi Gayo</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-sm text-gray-500 block">Skor</span>
+                    <span id="score-display" class="text-2xl math-font font-bold text-green-600">0</span>
+                </div>
+            </div>
+
+            <!-- Problem Context -->
+            <p id="problem-context" class="mb-4 text-gray-700 leading-relaxed">
+                Konteks soal akan muncul di sini.
+            </p>
+
+            <!-- Function Definitions -->
+            <div class="bg-green-50 rounded-xl p-4 mb-6 border border-green-200 shadow-inner flex flex-col md:flex-row gap-4 justify-center">
+                <div class="text-center flex-1">
+                    <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-1">Tahap 1</span>
+                    <div id="func-f" class="math-font text-lg md:text-xl font-bold text-blue-700 bg-white py-2 px-4 rounded shadow-sm border border-blue-100">
+                        f(x) = ...
+                    </div>
+                </div>
+                <div class="text-center flex-1">
+                    <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-1">Tahap 2</span>
+                    <div id="func-g" class="math-font text-lg md:text-xl font-bold text-purple-700 bg-white py-2 px-4 rounded shadow-sm border border-purple-100">
+                        g(x) = ...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question -->
+            <div class="mb-6">
+                <h3 class="font-bold text-gray-800 text-lg mb-2">Tantangan:</h3>
+                <p id="question-text" class="text-lg math-font bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded-r">
+                    Pertanyaan?
+                </p>
+            </div>
+
+            <!-- Options -->
+            <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-auto">
+                <!-- Buttons injected via JS -->
+            </div>
+            
+            <!-- Feedback Message -->
+            <div id="feedback-message" class="hidden mt-4 text-center font-bold p-3 rounded-lg text-white">
+                <!-- Feedback injected via JS -->
+            </div>
+        </div>
+
+        <div id="scene-end" class="hidden-scene p-6 md:p-8 flex flex-col items-center fade-in text-center">
+            <span class="text-6xl mb-4 float-anim">🏆</span>
+            <h2 class="text-3xl font-extrabold text-green-800 mb-2">Petualangan Selesai!</h2>
+            <p class="text-gray-600 mb-6">Kamu telah berhasil menjelajahi Nusantara dengan kekuatan matematika.</p>
+            
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 w-full max-w-sm mb-8">
+                <p class="text-gray-500 font-semibold mb-1">Total Skor Kamu</p>
+                <div id="final-score" class="text-5xl math-font font-black text-green-600">100</div>
+                <p id="final-message" class="mt-4 text-lg font-medium text-gray-800">Luar Biasa!</p>
+            </div>
+            
+            <button onclick="resetGame()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full btn-hover shadow-lg text-lg">
+                Main Lagi 🔄
+            </button>
+        </div>
+
+        <!-- Scene Guru: Teacher Portal & Lesson Plan -->
+        <div id="scene-guru" class="hidden-scene p-6 md:p-8 flex flex-col fade-in">
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b border-gray-200">
+                <span class="text-3xl">👨‍🏫</span>
+                <div>
+                    <h2 class="text-2xl font-bold text-blue-900">Portal Guru & Modul Pembelajaran</h2>
+                    <p class="text-xs text-gray-500">Matematika Tingkat Lanjut / Fase F - Kelas 11 (Komposisi Fungsi)</p>
+                </div>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex border-b border-gray-200 mb-4 gap-2">
+                <button id="tab-btn-modul" onclick="switchGuruTab('modul')" class="py-2 px-4 font-bold border-b-2 border-blue-600 text-blue-600 text-sm cursor-pointer">📘 Modul Ajar</button>
+                <button id="tab-btn-kunci" onclick="switchGuruTab('kunci')" class="py-2 px-4 font-semibold text-gray-500 border-b-2 border-transparent hover:text-blue-600 text-sm cursor-pointer">🔑 Kunci & Pembahasan</button>
+                <button id="tab-btn-lkpd" onclick="switchGuruTab('lkpd')" class="py-2 px-4 font-semibold text-gray-500 border-b-2 border-transparent hover:text-blue-600 text-sm cursor-pointer">📑 LKPD Ringkas</button>
+            </div>
+
+            <!-- Tab Content: Modul Ajar -->
+            <div id="guru-tab-modul" class="space-y-4 text-sm text-gray-700 max-h-96 overflow-y-auto pr-2">
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                    <h3 class="font-bold text-blue-900 text-base mb-1">🎯 Capaian Pembelajaran (CP)</h3>
+                    <p>Peserta didik dapat menjelaskan, menerapkan, serta mengomposisikan dua atau lebih fungsi aljabar untuk menyelesaikan masalah kontekstual nyata.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-gray-800 text-base mb-2">💡 Tujuan Pembelajaran (TP)</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Memahami konsep dasar operasi komposisi fungsi $(g \circ f)(x)$ dan $(f \circ g)(x)$.</li>
+                        <li>Menganalisis perbedaan urutan pengerjaan fungsi pada skenario kehidupan nyata (diskon vs pajak).</li>
+                        <li>Menentukan nilai evaluasi fungsi komposisi pada titik tertentu $(g \circ f)(a)$.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-gray-800 text-base mb-2">📌 Alur Aktivitas Pembelajaran Interaktif</h3>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><b>Fase Orientasi (Pemantik):</b> Tampilkan kasus Martabak Online (Diskon vs Pajak). Minta siswa menebak mana urutan yang paling murah.</li>
+                        <li><b>Fase Eksplorasi (Game Petualangan):</b> Siswa memainkan game secara mandiri atau berkelompok untuk mengumpulkan skor dari Pos Sumatera hingga Papua.</li>
+                        <li><b>Fase Evaluasi & Refleksi:</b> Guru dan siswa membahas hasil serta sifat komutatif $(f \circ g)(x) \neq (g \circ f)(x)$.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Tab Content: Kunci & Pembahasan -->
+            <div id="guru-tab-kunci" class="hidden-scene space-y-3 text-sm text-gray-700 max-h-96 overflow-y-auto pr-2">
+                <div class="border rounded-xl p-3 bg-gray-50">
+                    <h4 class="font-bold text-green-700">Pos 1: Sumatera (Kebun Kopi Gayo)</h4>
+                    <p class="font-semibold text-gray-800 mt-1">Soal: Evaluasi $(g \circ f)(3)$ dengan $f(x)=2x+10$ & $g(x)=x-5$</p>
+                    <p class="text-xs text-gray-600 mt-1 bg-white p-2 rounded border"><b>Jawaban: 11 kg.</b><br>Langkah 1: $f(3) = 2(3) + 10 = 16$.<br>Langkah 2: $g(16) = 16 - 5 = 11$.</p>
+                </div>
+
+                <div class="border rounded-xl p-3 bg-gray-50">
+                    <h4 class="font-bold text-green-700">Pos 2: Jawa (Batik Laweyan)</h4>
+                    <p class="font-semibold text-gray-800 mt-1">Soal: Tentukan rumus $(g \circ f)(x)$ dengan $f(x)=3x-2$ & $g(x)=x+4$</p>
+                    <p class="text-xs text-gray-600 mt-1 bg-white p-2 rounded border"><b>Jawaban: $3x + 2$.</b><br>Langkah: $g(f(x)) = g(3x - 2) = (3x - 2) + 4 = 3x + 2$.</p>
+                </div>
+
+                <div class="border rounded-xl p-3 bg-gray-50">
+                    <h4 class="font-bold text-green-700">Pos 3: Kalimantan (Pasar Terapung)</h4>
+                    <p class="font-semibold text-gray-800 mt-1">Soal: Evaluasi $(g \circ f)(10)$ dengan $f(x)=(x+2)/3$ & $g(x)=2x-1$</p>
+                    <p class="text-xs text-gray-600 mt-1 bg-white p-2 rounded border"><b>Jawaban: 7 liter.</b><br>Langkah 1: $f(10) = (10+2)/3 = 4$.<br>Langkah 2: $g(4) = 2(4) - 1 = 7$.</p>
+                </div>
+
+                <div class="border rounded-xl p-3 bg-gray-50">
+                    <h4 class="font-bold text-green-700">Pos 4: Sulawesi (Kapal Pinisi)</h4>
+                    <p class="font-semibold text-gray-800 mt-1">Soal: Tentukan rumus $(g \circ f)(x)$ dengan $f(x)=5x$ & $g(x)=x+20$</p>
+                    <p class="text-xs text-gray-600 mt-1 bg-white p-2 rounded border"><b>Jawaban: $5x + 20$.</b><br>Langkah: $g(f(x)) = g(5x) = 5x + 20$.</p>
+                </div>
+
+                <div class="border rounded-xl p-3 bg-gray-50">
+                    <h4 class="font-bold text-green-700">Pos 5: Papua (Raja Ampat)</h4>
+                    <p class="font-semibold text-gray-800 mt-1">Soal: Evaluasi $(g \circ f)(5)$ with $f(x)=x^2$ & $g(x)=4x+10$</p>
+                    <p class="text-xs text-gray-600 mt-1 bg-white p-2 rounded border"><b>Jawaban: 110 bibit.</b><br>Langkah 1: $f(5) = 5^2 = 25$.<br>Langkah 2: $g(25) = 4(25) + 10 = 110$.</p>
+                </div>
+            </div>
+
+            <!-- Tab Content: LKPD -->
+            <div id="guru-tab-lkpd" class="hidden-scene space-y-3 text-sm text-gray-700 max-h-96 overflow-y-auto pr-2">
+                <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200">
+                    <h3 class="font-bold text-yellow-900 mb-2">📝 Panduan Lembar Kerja Peserta Didik (LKPD)</h3>
+                    <p class="mb-2">Instruksi Guru untuk Siswa di Kelas:</p>
+                    <ol class="list-decimal pl-5 space-y-1 text-xs">
+                        <li>Buka aplikasi game interaktif ini melalui link yang diberikan.</li>
+                        <li>Diskusikan bersama kelompok situasi pemantik Martabak Online. Tuliskan kesimpulan perbedaan $f(g(x))$ dan $g(f(x))$.</li>
+                        <li>Selesaikan 5 Pos Petualangan Nusantara dan catat rumus matematika yang terbentuk di lembar catatan kelompok.</li>
+                        <li>Catat total skor akhir kelompok Anda dan presentasikan solusi untuk Pos 5 (Raja Ampat).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t flex justify-end">
+                <button onclick="selectRole('siswa')" class="bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-2 px-5 rounded-full btn-hover shadow cursor-pointer">
+                    Mulai Mainkan Game sebagai Siswa 🚀
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Game Data Configuration
+        const levels = [
+            {
+                island: "Sumatera",
+                location: "Kebun Kopi Gayo",
+                icon: "☕",
+                context: "Proses pengolahan biji kopi Gayo melalui 2 mesin. Mesin pengupas kulit dimodelkan dengan fungsi <b>f(x)</b> (dalam kg), dan mesin pemanggang (roasting) dimodelkan dengan fungsi <b>g(x)</b>.",
+                fText: "f(x) = 2x + 10",
+                gText: "g(x) = x - 5",
+                question: "Jika petani memasukkan 3 kg biji kopi mentah ke mesin pengupas, lalu hasilnya langsung dimasukkan ke mesin pemanggang, berapa kg kopi panggang yang dihasilkan? Hitung nilai (g ∘ f)(3)!",
+                options: [
+                    { text: "11 kg", isCorrect: true, explanation: "f(3) = 2(3)+10 = 16. Lalu g(16) = 16 - 5 = 11." },
+                    { text: "6 kg", isCorrect: false },
+                    { text: "16 kg", isCorrect: false },
+                    { text: "8 kg", isCorrect: false }
+                ]
+            },
+            {
+                island: "Jawa",
+                location: "Kampung Batik Laweyan",
+                icon: "🎨",
+                context: "Seorang pengrajin batik membuat pola dengan malam (lilin) yang rumusnya <b>f(x)</b>, kemudian dilanjutkan dengan tahap pewarnaan celup yang rumusnya <b>g(x)</b>.",
+                fText: "f(x) = 3x - 2",
+                gText: "g(x) = x + 4",
+                question: "Bantulah pengrajin menemukan rumus mesin otomatis yang menggabungkan kedua proses sekaligus dari membatik hingga mewarnai. Tentukan rumus fungsi komposisi (g ∘ f)(x)!",
+                options: [
+                    { text: "3x + 10", isCorrect: false },
+                    { text: "3x + 2", isCorrect: true, explanation: "g(f(x)) = g(3x - 2) = (3x - 2) + 4 = 3x + 2." },
+                    { text: "3x - 2", isCorrect: false },
+                    { text: "4x + 2", isCorrect: false }
+                ]
+            },
+            {
+                island: "Kalimantan",
+                location: "Pasar Terapung Lok Baintan",
+                icon: "🛶",
+                context: "Di pasar terapung berlaku sistem barter bertingkat. Fungsi <b>f(x)</b> mengubah jumlah keranjang Jeruk menjadi Ikan Gabus. Fungsi <b>g(x)</b> mengubah jumlah Ikan Gabus menjadi Liter Beras.",
+                fText: "f(x) = (x + 2) / 3",
+                gText: "g(x) = 2x - 1",
+                question: "Berapa liter beras yang didapat pedagang jika ia memulai barter dengan membawa 10 keranjang Jeruk? Hitung nilai (g ∘ f)(10)!",
+                options: [
+                    { text: "4 liter", isCorrect: false },
+                    { text: "7 liter", isCorrect: true, explanation: "f(10) = (10+2)/3 = 4 ikan. g(4) = 2(4)-1 = 7 liter beras." },
+                    { text: "19 liter", isCorrect: false },
+                    { text: "10 liter", isCorrect: false }
+                ]
+            },
+            {
+                island: "Sulawesi",
+                location: "Galangan Kapal Pinisi",
+                icon: "⛵",
+                context: "Pembuatan kapal Pinisi membutuhkan kayu khusus. Fungsi <b>f(x)</b> menghitung biaya bahan baku (dalam juta rupiah). Fungsi <b>g(x)</b> menghitung total biaya termasuk jasa pembuat (ditambah 20 juta).",
+                fText: "f(x) = 5x",
+                gText: "g(x) = x + 20",
+                question: "Pelanggan ingin memesan kapal dengan spesifikasi bahan x. Ia ingin tahu rumus total biaya akhir. Tentukan (g ∘ f)(x)!",
+                options: [
+                    { text: "5x + 100", isCorrect: false },
+                    { text: "6x + 20", isCorrect: false },
+                    { text: "5x + 20", isCorrect: true, explanation: "g(f(x)) = g(5x) = 5x + 20." },
+                    { text: "x + 25", isCorrect: false }
+                ]
+            },
+            {
+                island: "Papua",
+                location: "Konservasi Raja Ampat",
+                icon: "🪸",
+                context: "Program tanam terumbu karang. Fungsi <b>f(x)</b> memetakan luas area (m²) ke jumlah grid besi. Fungsi <b>g(x)</b> memetakan jumlah grid besi ke total bibit karang yang dibutuhkan.",
+                fText: "f(x) = x²",
+                gText: "g(x) = 4x + 10",
+                question: "Jika relawan akan menanam di area seluas 5 m², berapa total bibit karang yang harus disiapkan? Hitung (g ∘ f)(5)!",
+                options: [
+                    { text: "110 bibit", isCorrect: true, explanation: "f(5) = 5² = 25. g(25) = 4(25) + 10 = 100 + 10 = 110." },
+                    { text: "30 bibit", isCorrect: false },
+                    { text: "900 bibit", isCorrect: false },
+                    { text: "100 bibit", isCorrect: false }
+                ]
+            }
+        ];
+
+        let currentLevel = 0;
+        let score = 0;
+        const pointsPerLevel = 20;
+
+        // DOM Elements
+        const sceneRoleSelection = document.getElementById('scene-role-selection');
+        const scenePemantik = document.getElementById('scene-pemantik');
+        const sceneGame = document.getElementById('scene-game');
+        const sceneEnd = document.getElementById('scene-end');
+        const sceneGuru = document.getElementById('scene-guru');
+        const btnBackHome = document.getElementById('btn-back-home');
+
+        function hideAllScenes() {
+            sceneRoleSelection.classList.add('hidden-scene');
+            scenePemantik.classList.add('hidden-scene');
+            sceneGame.classList.add('hidden-scene');
+            sceneEnd.classList.add('hidden-scene');
+            sceneGuru.classList.add('hidden-scene');
+        }
+
+        function goToHome() {
+            hideAllScenes();
+            sceneRoleSelection.classList.remove('hidden-scene');
+            btnBackHome.classList.add('hidden');
+        }
+
+        function selectRole(role) {
+            hideAllScenes();
+            btnBackHome.classList.remove('hidden');
+
+            if (role === 'siswa') {
+                scenePemantik.classList.remove('hidden-scene');
+            } else if (role === 'guru') {
+                sceneGuru.classList.remove('hidden-scene');
+            }
+        }
+
+        function switchGuruTab(tabName) {
+            // Hide all tabs
+            document.getElementById('guru-tab-modul').classList.add('hidden-scene');
+            document.getElementById('guru-tab-kunci').classList.add('hidden-scene');
+            document.getElementById('guru-tab-lkpd').classList.add('hidden-scene');
+
+            // Reset tab button styles
+            const tabs = ['modul', 'kunci', 'lkpd'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                btn.className = "py-2 px-4 font-semibold text-gray-500 border-b-2 border-transparent hover:text-blue-600 text-sm cursor-pointer";
+            });
+
+            // Activate selected tab
+            document.getElementById(`guru-tab-${tabName}`).classList.remove('hidden-scene');
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            activeBtn.className = "py-2 px-4 font-bold border-b-2 border-blue-600 text-blue-600 text-sm cursor-pointer";
+        }
+
+        function startGame() {
+            hideAllScenes();
+            sceneGame.classList.remove('hidden-scene');
+            btnBackHome.classList.remove('hidden');
+            currentLevel = 0;
+            score = 0;
+            updateScore();
+            loadLevel();
+        }
+
+        function loadLevel() {
+            if (currentLevel >= levels.length) {
+                endGame();
+                return;
+            }
+
+            const levelData = levels[currentLevel];
+            
+            // Update UI
+            document.getElementById('level-title').innerText = `Pos ${currentLevel + 1}: ${levelData.island}`;
+            document.getElementById('level-subtitle').innerText = levelData.location;
+            document.getElementById('level-icon').innerText = levelData.icon;
+            document.getElementById('problem-context').innerHTML = levelData.context;
+            document.getElementById('func-f').innerText = levelData.fText;
+            document.getElementById('func-g').innerText = levelData.gText;
+            document.getElementById('question-text').innerText = levelData.question;
+            
+            // Update Progress
+            const progressPercentage = ((currentLevel) / levels.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+
+            // Reset and Render Options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            // Hide feedback
+            const feedbackEl = document.getElementById('feedback-message');
+            feedbackEl.classList.add('hidden');
+            feedbackEl.className = 'hidden mt-4 text-center font-bold p-3 rounded-lg text-white'; // reset classes
+
+            // Shuffle options slightly (simple sort)
+            const shuffledOptions = [...levelData.options].sort(() => Math.random() - 0.5);
+
+            shuffledOptions.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'bg-white hover:bg-green-50 text-gray-800 font-semibold py-3 px-4 border border-gray-300 rounded-xl shadow-sm text-center transition-all math-font text-lg';
+                btn.innerText = opt.text;
+                btn.onclick = () => checkAnswer(opt, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(option, btnElement) {
+            // Disable all buttons to prevent multiple clicks
+            const buttons = document.querySelectorAll('#options-container button');
+            buttons.forEach(b => b.disabled = true);
+
+            const feedbackEl = document.getElementById('feedback-message');
+            feedbackEl.classList.remove('hidden');
+
+            if (option.isCorrect) {
+                btnElement.classList.remove('bg-white', 'text-gray-800', 'border-gray-300', 'hover:bg-green-50');
+                btnElement.classList.add('bg-green-500', 'text-white', 'border-green-600', 'scale-105');
+                
+                score += pointsPerLevel;
+                updateScore();
+                
+                feedbackEl.classList.add('bg-green-600');
+                feedbackEl.innerHTML = `✅ Benar! <br><span class="text-sm font-normal">${option.explanation || 'Kerja bagus!'}</span>`;
+            } else {
+                btnElement.classList.remove('bg-white', 'text-gray-800', 'border-gray-300', 'hover:bg-green-50');
+                btnElement.classList.add('bg-red-500', 'text-white', 'border-red-600');
+                
+                // Find and highlight correct answer
+                const levelData = levels[currentLevel];
+                const correctText = levelData.options.find(o => o.isCorrect).text;
+                const correctExplanation = levelData.options.find(o => o.isCorrect).explanation;
+                
+                feedbackEl.classList.add('bg-red-500');
+                feedbackEl.innerHTML = `❌ Kurang Tepat. <br><span class="text-sm font-normal">Jawaban yang benar adalah <b>${correctText}</b>.<br>${correctExplanation}</span>`;
+            }
+
+            // Move to next level after delay
+            setTimeout(() => {
+                currentLevel++;
+                loadLevel();
+            }, 3500); // Wait 3.5 seconds to read explanation
+        }
+
+        function updateScore() {
+            document.getElementById('score-display').innerText = score;
+        }
+
+        function endGame() {
+            sceneGame.classList.add('hidden-scene');
+            sceneEnd.classList.remove('hidden-scene');
+            
+            document.getElementById('final-score').innerText = score;
+            
+            let message = "";
+            if (score === 100) message = "Luar Biasa! Kamu adalah Master Komposisi Fungsi! 🌟";
+            else if (score >= 60) message = "Hebat! Kamu berhasil menaklukkan sebagian besar rintangan Nusantara. 👍";
+            else message = "Tetap Semangat! Latihan lagi agar semakin mahir. 💪";
+            
+            document.getElementById('final-message').innerText = message;
+        }
+
+        function resetGame() {
+            hideAllScenes();
+            scenePemantik.classList.remove('hidden-scene'); // Go back to intro
+        }
+    </script>
+</body>
+</html>
